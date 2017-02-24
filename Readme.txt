@@ -31,5 +31,12 @@ Current logging level is: OnError, OnTaskFailed, OnWarning.
 
 
 
+To Do List (2017-02-24)
+=======================
+
+* Data conversion
+* SEPRAG (7)
+* XML Config for Splitter Package
+
 
 
