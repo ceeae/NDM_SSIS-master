@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "NDM_SSIS-master", "NDM_SSIS\NDM_SSIS-master.dtproj", "{605E3832-2E5F-4198-BF4D-D420146D2EC5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{921B0C39-BE75-43A0-9145-FFF77DC19149}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.txt = Readme.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SqlScripts", "SqlScripts", "{0DC839E7-B351-420B-9D78-D86E909028FE}"
+	ProjectSection(SolutionItems) = preProject
+		SqlScripts\CleanUp.sql = SqlScripts\CleanUp.sql
+		SqlScripts\SetupTable_Journal.sql = SqlScripts\SetupTable_Journal.sql
+		SqlScripts\SetupTable_NCAImport.sql = SqlScripts\SetupTable_NCAImport.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConfigurationFiles", "ConfigurationFiles", "{031464F6-92D1-48B7-9FF6-6B450DECFBCA}"
+	ProjectSection(SolutionItems) = preProject
+		ConfigurationFiles\import_ff_nca_m501.dtsConfig = ConfigurationFiles\import_ff_nca_m501.dtsConfig
+		ConfigurationFiles\import_ff_nca_m501_SVIL.dtsConfig = ConfigurationFiles\import_ff_nca_m501_SVIL.dtsConfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{605E3832-2E5F-4198-BF4D-D420146D2EC5}.Development|Default.ActiveCfg = Development
+		{605E3832-2E5F-4198-BF4D-D420146D2EC5}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0DC839E7-B351-420B-9D78-D86E909028FE} = {921B0C39-BE75-43A0-9145-FFF77DC19149}
+		{031464F6-92D1-48B7-9FF6-6B450DECFBCA} = {921B0C39-BE75-43A0-9145-FFF77DC19149}
+	EndGlobalSection
+EndGlobal

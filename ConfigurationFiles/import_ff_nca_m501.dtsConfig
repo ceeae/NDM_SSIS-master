@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<DTSConfiguration>
+  <DTSConfigurationHeading>
+    <DTSConfigurationFileInfo GeneratedBy="DESKTOP-9PO21MC\pietro" GeneratedFromPackageName="import_ff_nca_m501" GeneratedFromPackageID="{B54ABA12-7FE5-48CD-BCB9-AE90F15CF558}" GeneratedDate="2/21/2017 12:03:26 PM"/>
+  </DTSConfigurationHeading>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sConnectionStringDBImport].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=.;Initial Catalog=test;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sConnectionStringDBLogging].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=.;Initial Catalog=test;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sFolderPathArchive].Properties[Value]" ValueType="String">
+    <ConfiguredValue>c:\vs15\NDM_SSIS\_Archive\</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sFolderPathError].Properties[Value]" ValueType="String">
+    <ConfiguredValue>c:\vs15\NDM_SSIS\_Error\</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sFolderPathImport].Properties[Value]" ValueType="String">
+    <ConfiguredValue>c:\vs15\NDM_SSIS\_Import\</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sFolderPathStaging].Properties[Value]" ValueType="String">
+    <ConfiguredValue>c:\vs15\NDM_SSIS\_Staging\</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sConnectionStringFolderPathSQLScript].Properties[Value]" ValueType="String">
+    <ConfiguredValue>c:\vs15\NDM_SSIS\SqlScripts\</ConfiguredValue>
+  </Configuration>
+</DTSConfiguration>
