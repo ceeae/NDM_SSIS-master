@@ -12,16 +12,18 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="splitter"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{1CD958A3-2A14-4C02-866F-34BD3541D5CE}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{332FF55E-F868-4FFD-B5D2-BFA5AB846BB2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:refId="Package.ConnectionManagers[Flat File Destination M221]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{BEFB6D8B-4500-43B1-8122-BFD7F1708B45}"
-      DTS:ObjectName="Flat File Connection Manager">
+      DTS:DTSID="{14215DC4-8C5E-4F3A-B802-B80C9A8D8F54}"
+      DTS:ObjectName="Flat File Destination M221">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::sFolderPathImport] +  @[User::sFilenameDestinationM221]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -30,7 +32,67 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\vs15\NDM_SSIS-master\_Splitting\NCA-201612-05.TXT">
+          DTS:ConnectionString="c:\vs15\NDM_SSIS-master\_Import\NCA_M221.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="900"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Row"
+              DTS:DTSID="{DB3945E3-C974-4ED5-8AE9-FF7E93F5EBAD}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Destination M501]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{B13E9CC8-57D1-43B6-8F68-8208BAAE19F0}"
+      DTS:ObjectName="Flat File Destination M501">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::sFolderPathImport] +  @[User::sFilenameDestinationM501]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="c:\vs15\NDM_SSIS-master\_Import\NCA_M501.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="900"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Row"
+              DTS:DTSID="{52057877-3199-4BED-9AC1-0990C7124B51}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Source]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{BEFB6D8B-4500-43B1-8122-BFD7F1708B45}"
+      DTS:ObjectName="Flat File Source">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::sFolderPathSplitting] +  @[User::sFilenameSource]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="c:\vs15\NDM_SSIS-master\_Splitting\NCA-201612-05.TXT">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -39,63 +101,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Row"
-              DTS:DTSID="{CB0DFEA1-A922-4D5D-8AC9-39C1FFE412A6}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
-      DTS:CreationName="FLATFILE"
-      DTS:DTSID="{B13E9CC8-57D1-43B6-8F68-8208BAAE19F0}"
-      DTS:ObjectName="Flat File Connection Manager 1">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\vs15\NDM_SSIS-master\_Import\NCA_M501.txt">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="900"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Row"
-              DTS:DTSID="{37ADC0B0-9E56-40E6-A058-5B2F307C5CD6}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 2]"
-      DTS:CreationName="FLATFILE"
-      DTS:DTSID="{14215DC4-8C5E-4F3A-B802-B80C9A8D8F54}"
-      DTS:ObjectName="Flat File Connection Manager 2">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\vs15\NDM_SSIS-master\_Splitting\NCA_M221.txt">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="900"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Row"
-              DTS:DTSID="{0F87BFBF-6230-4F52-9D31-E8D3A71D70B5}"
+              DTS:DTSID="{F6C8AC12-72CC-4C1E-8B04-C49ABBF5A6EA}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -105,21 +111,48 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{CBECB4FE-7EA9-4733-83E8-F7A8A29B422B}"
-      DTS:IncludeInDebugDump="6789"
+      DTS:DTSID="{5C3637BE-AA0F-424A-9568-E8B64CDDC418}"
+      DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
-      DTS:ObjectName="oRowset">
+      DTS:ObjectName="sFilenameDestinationM221">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8">NCA_M221.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{885AB982-8E3C-4D4C-A076-ECCF97201353}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sFilenameDestinationM501">
+      <DTS:VariableValue
+        DTS:DataType="8">NCA_M501.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{58FDEEF3-F0D3-4BE0-BF5C-E3C5E14AD99C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sFilenameSource">
+      <DTS:VariableValue
+        DTS:DataType="8">NCA-201612-05.TXT</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A0A9407F-458C-48BC-883D-F581BDF1EF25}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sFolderPathImport">
+      <DTS:VariableValue
+        DTS:DataType="8">c:\vs15\NDM_SSIS-master\_Import\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{03F7EFAE-0120-43AE-949F-A98AAB218132}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sFolderPathSplitting">
+      <DTS:VariableValue
+        DTS:DataType="8">c:\vs15\NDM_SSIS-master\_Splitting\</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -155,7 +188,7 @@
                       cachedDataType="str"
                       cachedLength="680"
                       cachedName="Row"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Row]" />
+                      lineageId="Package\Data Flow Task\Source.Outputs[Flat File Source Output].Columns[Row]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -175,7 +208,7 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[LEFT](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Row]},1) == "1"</property>
+                      name="Expression">[LEFT](#{Package\Data Flow Task\Source.Outputs[Flat File Source Output].Columns[Row]},1) == "1"</property>
                     <property
                       containsID="true"
                       dataType="System.String"
@@ -203,7 +236,7 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[LEFT](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Row]},1) == "2"</property>
+                      name="Expression">[LEFT](#{Package\Data Flow Task\Source.Outputs[Flat File Source Output].Columns[Row]},1) == "2"</property>
                     <property
                       containsID="true"
                       dataType="System.String"
@@ -231,7 +264,7 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[LEFT](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Row]},1) == "3" || [LEFT](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Row]},1) == "4"</property>
+                      name="Expression">[LEFT](#{Package\Data Flow Task\Source.Outputs[Flat File Source Output].Columns[Row]},1) == "3" || [LEFT](#{Package\Data Flow Task\Source.Outputs[Flat File Source Output].Columns[Row]},1) == "4"</property>
                     <property
                       containsID="true"
                       dataType="System.String"
@@ -259,7 +292,7 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[LEFT](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Row]},1) == "5" || [LEFT](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Row]},1) == "6"</property>
+                      name="Expression">[LEFT](#{Package\Data Flow Task\Source.Outputs[Flat File Source Output].Columns[Row]},1) == "5" || [LEFT](#{Package\Data Flow Task\Source.Outputs[Flat File Source Output].Columns[Row]},1) == "6"</property>
                     <property
                       containsID="true"
                       dataType="System.String"
@@ -287,7 +320,7 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[LEFT](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Row]},1) == "7"</property>
+                      name="Expression">[LEFT](#{Package\Data Flow Task\Source.Outputs[Flat File Source Output].Columns[Row]},1) == "7"</property>
                     <property
                       containsID="true"
                       dataType="System.String"
@@ -315,7 +348,7 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[LEFT](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Row]},1) == "8"</property>
+                      name="Expression">[LEFT](#{Package\Data Flow Task\Source.Outputs[Flat File Source Output].Columns[Row]},1) == "8"</property>
                     <property
                       containsID="true"
                       dataType="System.String"
@@ -343,7 +376,7 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[LEFT](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Row]},1) == "9"</property>
+                      name="Expression">[LEFT](#{Package\Data Flow Task\Source.Outputs[Flat File Source Output].Columns[Row]},1) == "9"</property>
                     <property
                       containsID="true"
                       dataType="System.String"
@@ -396,12 +429,12 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Flat File Destination"
+              refId="Package\Data Flow Task\Destination M221"
               componentClassID="Microsoft.FlatFileDestination"
               contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Flat File Destination"
               localeId="1033"
-              name="Flat File Destination">
+              name="Destination M221">
               <properties>
                 <property
                   dataType="System.Boolean"
@@ -415,30 +448,30 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Flat File Destination.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 1]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  refId="Package\Data Flow Task\Destination M221.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Destination M221]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Destination M221]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input]"
+                  refId="Package\Data Flow Task\Destination M221.Inputs[Flat File Destination Input]"
                   hasSideEffects="true"
                   name="Flat File Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Row]"
+                      refId="Package\Data Flow Task\Destination M221.Inputs[Flat File Destination Input].Columns[Row]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="680"
                       cachedName="Row"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Row]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Row]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Destination M221.Inputs[Flat File Destination Input].ExternalColumns[Row]"
+                      lineageId="Package\Data Flow Task\Source.Outputs[Flat File Source Output].Columns[Row]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Row]"
+                      refId="Package\Data Flow Task\Destination M221.Inputs[Flat File Destination Input].ExternalColumns[Row]"
                       codePage="1252"
                       dataType="str"
                       length="900"
@@ -448,12 +481,12 @@
               </inputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Flat File Destination 1"
+              refId="Package\Data Flow Task\Destination M501"
               componentClassID="Microsoft.FlatFileDestination"
               contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Flat File Destination"
               localeId="1033"
-              name="Flat File Destination 1">
+              name="Destination M501">
               <properties>
                 <property
                   dataType="System.Boolean"
@@ -467,30 +500,30 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Flat File Destination 1.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 2]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 2]"
+                  refId="Package\Data Flow Task\Destination M501.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Destination M501]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Destination M501]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Flat File Destination 1.Inputs[Flat File Destination Input]"
+                  refId="Package\Data Flow Task\Destination M501.Inputs[Flat File Destination Input]"
                   hasSideEffects="true"
                   name="Flat File Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[Row]"
+                      refId="Package\Data Flow Task\Destination M501.Inputs[Flat File Destination Input].Columns[Row]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="680"
                       cachedName="Row"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Row]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Row]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Destination M501.Inputs[Flat File Destination Input].ExternalColumns[Row]"
+                      lineageId="Package\Data Flow Task\Source.Outputs[Flat File Source Output].Columns[Row]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Row]"
+                      refId="Package\Data Flow Task\Destination M501.Inputs[Flat File Destination Input].ExternalColumns[Row]"
                       codePage="1252"
                       dataType="str"
                       length="900"
@@ -500,12 +533,12 @@
               </inputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Flat File Source"
+              refId="Package\Data Flow Task\Source"
               componentClassID="Microsoft.FlatFileSource"
               contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Flat File Source"
               localeId="1033"
-              name="Flat File Source"
+              name="Source"
               usesDispositions="true"
               version="1">
               <properties>
@@ -520,25 +553,25 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Flat File Source.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  refId="Package\Data Flow Task\Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Source]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Source]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]"
+                  refId="Package\Data Flow Task\Source.Outputs[Flat File Source Output]"
                   name="Flat File Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Row]"
+                      refId="Package\Data Flow Task\Source.Outputs[Flat File Source Output].Columns[Row]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Row]"
+                      externalMetadataColumnId="Package\Data Flow Task\Source.Outputs[Flat File Source Output].ExternalColumns[Row]"
                       length="680"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Row]"
+                      lineageId="Package\Data Flow Task\Source.Outputs[Flat File Source Output].Columns[Row]"
                       name="Row"
                       truncationRowDisposition="IgnoreFailure">
                       <properties>
@@ -556,7 +589,7 @@
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Row]"
+                      refId="Package\Data Flow Task\Source.Outputs[Flat File Source Output].ExternalColumns[Row]"
                       codePage="1252"
                       dataType="str"
                       length="680"
@@ -564,27 +597,27 @@
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output]"
+                  refId="Package\Data Flow Task\Source.Outputs[Flat File Source Error Output]"
                   isErrorOut="true"
                   name="Flat File Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      refId="Package\Data Flow Task\Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
                       codePage="1252"
                       dataType="text"
                       description="Flat File Source Error Output Column"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      lineageId="Package\Data Flow Task\Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
                       name="Flat File Source Error Output Column" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -598,15 +631,15 @@
               refId="Package\Data Flow Task.Paths[Flat File Source Output]"
               endId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
               name="Flat File Source Output"
-              startId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]" />
+              startId="Package\Data Flow Task\Source.Outputs[Flat File Source Output]" />
             <path
               refId="Package\Data Flow Task.Paths[M221]"
-              endId="Package\Data Flow Task\Flat File Destination 1.Inputs[Flat File Destination Input]"
+              endId="Package\Data Flow Task\Destination M221.Inputs[Flat File Destination Input]"
               name="M221"
               startId="Package\Data Flow Task\Conditional Split.Outputs[M221]" />
             <path
               refId="Package\Data Flow Task.Paths[M501]"
-              endId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input]"
+              endId="Package\Data Flow Task\Destination M501.Inputs[Flat File Destination Input]"
               name="M501"
               startId="Package\Data Flow Task\Conditional Split.Outputs[M501]" />
           </paths>
@@ -639,119 +672,119 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="151,42"
-          Id="Package\Data Flow Task\Flat File Source"
+          Size="111,42"
+          Id="Package\Data Flow Task\Source"
           TopLeft="182,114" />
         <NodeLayout
-          Size="172,42"
-          Id="Package\Data Flow Task\Flat File Destination"
+          Size="161,42"
+          Id="Package\Data Flow Task\Destination M501"
           TopLeft="560,133" />
         <NodeLayout
           Size="155,42"
           Id="Package\Data Flow Task\Conditional Split"
-          TopLeft="243,215" />
+          TopLeft="207,238" />
         <NodeLayout
-          Size="181,42"
-          Id="Package\Data Flow Task\Flat File Destination 1"
+          Size="161,42"
+          Id="Package\Data Flow Task\Destination M221"
           TopLeft="649,250" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[M501]"
-          TopLeft="345,215">
+          TopLeft="309,238">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="301,-40"
+              EndConnector="331.5,-63"
               Start="0,0"
-              End="301,-32.5">
+              End="331.5,-55.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-12.2452107279693" />
+                    End="0,-21.5862068965517" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-12.2452107279693"
-                    Point2="0,-16.2452107279693"
-                    Point3="4,-16.2452107279693" />
+                    Point1="0,-21.5862068965517"
+                    Point2="0,-25.5862068965517"
+                    Point3="4,-25.5862068965517" />
                   <mssgle:LineSegment
-                    End="297,-16.2452107279693" />
+                    End="327.5,-25.5862068965517" />
                   <mssgle:CubicBezierSegment
-                    Point1="297,-16.2452107279693"
-                    Point2="301,-16.2452107279693"
-                    Point3="301,-20.2452107279693" />
+                    Point1="327.5,-25.5862068965517"
+                    Point2="331.5,-25.5862068965517"
+                    Point3="331.5,-29.5862068965517" />
                   <mssgle:LineSegment
-                    End="301,-32.5" />
+                    End="331.5,-55.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="138.22943359375,-11.2452107279693,24.5411328125,9.568359375"
+              BoundingBox="153.47943359375,-20.5862068965517,24.5411328125,9.568359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[M221]"
-          TopLeft="398,236">
+          TopLeft="362,259">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="251,35"
+              EndConnector="287,12"
               Start="0,0"
-              End="243.5,35">
+              End="279.5,12">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="121.5,0" />
+                    End="139.5,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="121.5,0"
-                    Point2="125.5,0"
-                    Point3="125.5,4" />
+                    Point1="139.5,0"
+                    Point2="143.5,0"
+                    Point3="143.5,4" />
                   <mssgle:LineSegment
-                    End="125.5,31" />
+                    End="143.5,8" />
                   <mssgle:CubicBezierSegment
-                    Point1="125.5,31"
-                    Point2="125.5,35"
-                    Point3="129.5,35" />
+                    Point1="143.5,8"
+                    Point2="143.5,12"
+                    Point3="147.5,12" />
                   <mssgle:LineSegment
-                    End="243.5,35" />
+                    End="279.5,12" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="113.22943359375,-15.421875,24.5411328125,9.421875"
+              BoundingBox="131.22943359375,-15.421875,24.5411328125,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Flat File Source Output]"
-          TopLeft="257.5,156">
+          TopLeft="237.5,156">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="63,59"
+              EndConnector="22.5,82"
               Start="0,0"
-              End="63,51.5">
+              End="22.5,74.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.5" />
+                    End="0,44.6973180076628" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.5"
-                    Point2="0,29.5"
-                    Point3="4,29.5" />
+                    Point1="0,44.6973180076628"
+                    Point2="0,48.6973180076628"
+                    Point3="4,48.6973180076628" />
                   <mssgle:LineSegment
-                    End="59,29.5" />
+                    End="18.5,48.6973180076628" />
                   <mssgle:CubicBezierSegment
-                    Point1="59,29.5"
-                    Point2="63,29.5"
-                    Point3="63,33.5" />
+                    Point1="18.5,48.6973180076628"
+                    Point2="22.5,48.6973180076628"
+                    Point3="22.5,52.6973180076628" />
                   <mssgle:LineSegment
-                    End="63,51.5" />
+                    End="22.5,74.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
