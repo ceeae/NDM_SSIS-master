@@ -6,7 +6,12 @@
 
 Package Setup
 =============
-The project use a "Package Deployment Model". Find '.dtsConfig' XML configuration files in the "ConfigurationFiles" folder.
+The project use a "Package Deployment Model". 
+
+A package XML Configuration file (for a "template" profile) is referenced by an environment variable called 
+NDM_SSIS_XMLCONFIGURATION_<package_name>.  
+Find '.dtsConfig' XML configuration files in the "ConfigurationFiles" folder.
+
 All SQL scripts are stored in SqlScripts folder.
 Scripts mainly concern tables setup, such as Journal, NCA, etc. and refer to table names that MUST be aligned with corresponding package variable.
 Script table name is dynalically linked to @TableName variable. Please do not chage variable content.

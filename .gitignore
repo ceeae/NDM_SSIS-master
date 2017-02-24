@@ -3,3 +3,10 @@
 ################################################################################
 
 /.vs/NDM_SSIS-master/v14
+/NDM_SSIS/bin/Development
+/_Archive
+/_Error
+/_Splitting
+/NDM_SSIS-master.v3.ncrunchsolution.user
+/NDM_SSIS.v3.ncrunchsolution.user
+/NDM_SSIS/import_ff_nca_m501 - Copy.dtsx

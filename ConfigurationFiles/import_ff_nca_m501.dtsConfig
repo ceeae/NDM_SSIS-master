@@ -10,18 +10,18 @@
     <ConfiguredValue>Data Source=.;Initial Catalog=test;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
   </Configuration>
   <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sFolderPathArchive].Properties[Value]" ValueType="String">
-    <ConfiguredValue>c:\vs15\NDM_SSIS\_Archive\</ConfiguredValue>
+    <ConfiguredValue>c:\vs15\NDM_SSIS-master\_Archive\</ConfiguredValue>
   </Configuration>
   <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sFolderPathError].Properties[Value]" ValueType="String">
-    <ConfiguredValue>c:\vs15\NDM_SSIS\_Error\</ConfiguredValue>
+    <ConfiguredValue>c:\vs15\NDM_SSIS-master\_Error\</ConfiguredValue>
   </Configuration>
   <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sFolderPathImport].Properties[Value]" ValueType="String">
-    <ConfiguredValue>c:\vs15\NDM_SSIS\_Import\</ConfiguredValue>
+    <ConfiguredValue>c:\vs15\NDM_SSIS-master\_Import\</ConfiguredValue>
   </Configuration>
   <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sFolderPathStaging].Properties[Value]" ValueType="String">
-    <ConfiguredValue>c:\vs15\NDM_SSIS\_Staging\</ConfiguredValue>
+    <ConfiguredValue>c:\vs15\NDM_SSIS-master\_Staging\</ConfiguredValue>
   </Configuration>
   <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sConnectionStringFolderPathSQLScript].Properties[Value]" ValueType="String">
-    <ConfiguredValue>c:\vs15\NDM_SSIS\SqlScripts\</ConfiguredValue>
+    <ConfiguredValue>c:\vs15\NDM_SSIS-master\SqlScripts\</ConfiguredValue>
   </Configuration>
 </DTSConfiguration>
