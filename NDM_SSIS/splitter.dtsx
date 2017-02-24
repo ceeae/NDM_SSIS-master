@@ -6,13 +6,14 @@
   DTS:CreatorComputerName="DESKTOP-9PO21MC"
   DTS:CreatorName="DESKTOP-9PO21MC\pietro"
   DTS:DTSID="{40F9C8BF-965C-4486-B9BE-9FA037150098}"
+  DTS:EnableConfig="True"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="13.0.2165.0"
+  DTS:LastModifiedProductVersion="13.0.4001.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="splitter"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{E87044C5-2DD8-4B92-9181-45DF09BB8516}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{1CD958A3-2A14-4C02-866F-34BD3541D5CE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +30,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="D:\SIAE\SSIS\NDM_SSIS-master\_Splitting\NCA-201612-05.TXT">
+          DTS:ConnectionString="C:\vs15\NDM_SSIS-master\_Splitting\NCA-201612-05.TXT">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -38,7 +39,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Row"
-              DTS:DTSID="{DCEE7EF4-5023-4C9F-A2E5-AE811403BD85}"
+              DTS:DTSID="{CB0DFEA1-A922-4D5D-8AC9-39C1FFE412A6}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -57,7 +58,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="D:\SIAE\SSIS\NDM_SSIS-master\_Import\NCA_M501.txt">
+          DTS:ConnectionString="C:\vs15\NDM_SSIS-master\_Import\NCA_M501.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -66,7 +67,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Row"
-              DTS:DTSID="{C6DB33CC-0DEE-4C6A-8127-07E0A1599D54}"
+              DTS:DTSID="{37ADC0B0-9E56-40E6-A058-5B2F307C5CD6}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -85,7 +86,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="D:\SIAE\SSIS\NDM_SSIS-master\_Splitting\NCA_M221.txt">
+          DTS:ConnectionString="C:\vs15\NDM_SSIS-master\_Splitting\NCA_M221.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -94,7 +95,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Row"
-              DTS:DTSID="{F5E4AE0D-A932-4DDA-85E5-8C3A5982DDF2}"
+              DTS:DTSID="{0F87BFBF-6230-4F52-9D31-E8D3A71D70B5}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -614,12 +615,12 @@
     </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Questa sezione CDATA contiene le informazioni sul layout del pacchetto e include informazioni quali coordinate (x,y), larghezza e altezza.-->
-<!--Se si modifica manualmente la sezione e si commette un errore, è possibile eliminarla. -->
-<!--Sarà comunque possibile caricare manualmente il pacchetto, ma le informazioni precedenti sul layout verranno perse e gli elementi verranno nuovamente disposti nell'area di progettazione all'interno dell'apposita finestra.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Ogni nodo seguente conterrà proprietà che non influiscono sul comportamento di runtime.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
