@@ -85,13 +85,20 @@ IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = @Table
 			    WITH (PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON) ON [PRIMARY]
 			) ON [PRIMARY];			
 			';
-
 		EXEC (@CreateTableSQLQuery);
 
 		SET @CreateTableSQLQuery = 
 			'ALTER TABLE ' + @TableName + ' ADD CONSTRAINT [DF_' + @TableName + '_IsConfirmed] DEFAULT ((1)) FOR [IsConfirmed]'
+		EXEC (@CreateTableSQLQuery);
 
+		-- Add FK to [UnitaTerritorialiSeprag] Table
+		SET @CreateTableSQLQuery = 
+			'ALTER TABLE ' + @TableName + ' WITH CHECK ADD CONSTRAINT [FK_' + @TableName + '_UnitaTerritorialiSeprag] FOREIGN KEY([IdSeprag])
+			 REFERENCES [dbo].[UnitaTerritorialiSeprag]([ID])'
+		EXEC (@CreateTableSQLQuery);
+
+		SET @CreateTableSQLQuery = 
+			'ALTER TABLE ' + @TableName + ' CHECK CONSTRAINT [FK_' + @TableName + '_UnitaTerritorialiSeprag]'
 		EXEC (@CreateTableSQLQuery);
 	
 	END
-

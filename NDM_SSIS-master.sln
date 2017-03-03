@@ -15,6 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SqlScripts", "SqlScripts", 
 		SqlScripts\CleanUp.sql = SqlScripts\CleanUp.sql
 		SqlScripts\SetupTable_Journal.sql = SqlScripts\SetupTable_Journal.sql
 		SqlScripts\SetupTable_NCAImport.sql = SqlScripts\SetupTable_NCAImport.sql
+		SqlScripts\UpdateTable_NCAwithSepragId.sql = SqlScripts\UpdateTable_NCAwithSepragId.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConfigurationFiles", "ConfigurationFiles", "{031464F6-92D1-48B7-9FF6-6B450DECFBCA}"
