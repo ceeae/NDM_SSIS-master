@@ -1,23 +1,53 @@
-﻿DECLARE @TableName VARCHAR(20);
+﻿-- @Fri, 3rd March 2017
+
+-- Notes
+-- =====
+
+-- [IdSeprag] FK to 'UnitaTerritorialiSeprag' to be added
+-- [DataChiusuraElaborazione] contains a date when logically belongs to a closed a period
+-- [IsConfirmed] dafault=True if to be considered for calculation on current open period
+
+-- Data Conversion Checks
+-- ======================
+
+-- M501 DataFattura [varchar](6) 'ggmmaa'								DataQuietanza [date] (Error raised)
+-- M501 DataNotaCredito [varchar](6) 'ggmmaa'							DataDocumentoRiferimento [date] (Not raised any error. gets NULL)
+-- M501 CodiceProvincia [varchar](2) '00','01',...,'99','A0','A1',...   varchar[3] '000','001',...,'099','100','101',...
+-- m501 CodiceBA [varchar](30)											CodiceLocale (to be changed in the future)
+-- M501 Importo [varchar](9) '(7,2) nnnnnnnnn'							decimal(18,2)
+-- M501 ImportoIva5082 [varchar](8) '(6,2) nnnnnnnn'					decimal(18,2)
+-- M501 ImportoIva5183 [varchar](8) '(6,2) nnnnnnnn'					decimal(18,2)
+-- M501 ImportoTotaleInEuro [varchar](10) '(8,2) nnnnnnnnnn'			decimal(18,2)
+-- M501 ImportoTotaleInLire [varchar](10) 'nnnnnnnnnn'					decimal(18,2)
+-- M501 ImportoImpostaLorda [varchar](9) '(7,2) nnnnnnnnn'				decimal(18,2)
+-- M501 ImportoAbbuoniContestuali [varchar](8) '(6,2) nnnnnnnn'			decimal(18,2)
+
+
+DECLARE @TableName VARCHAR(20);
 SET @TableName = 'ProvvIncassi'; -- DO NOT CHANGE! Table Name change requires alignment with project variable
 
 DECLARE @CreateTableSQLQuery VARCHAR(MAX);
-IF NOT EXISTS 
-	(SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = @TableName)
+
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = @TableName)
 	
 	BEGIN
-		SET @CreateTableSQLQuery = 'CREATE TABLE ' + @TableName + ' (
-				[TipoRecord] numeric(1,0),
+		SET @CreateTableSQLQuery = 
+			'CREATE TABLE ' + @TableName + ' (
+				[Id] [bigint] IDENTITY(1,1) NOT NULL,
+				[IdSeprag] [int] NULL,
+				[DataChiusuraElaborazione] date NULL,
+				[TipoRecord] [numeric](1,0) NULL,
 				[Contabilita] varchar(4),
 				[CodiceSede] varchar(2),
 				[NumeroQuietanza] varchar(7),
-				[CodiceProvincia] varchar(2),
+				[CodiceProvincia] [varchar](3) NULL,
 				[CodiceAgenzia] varchar(2),
 				[NumeroFattura] varchar(7),
-				[DataQuietanza] varchar(6),
+				[DataFattura] [date] NULL,
+				[CodiceBA] [varchar](30) NULL,
 				[TipoDocumento] varchar(2),
 				[NumeroDocumentoRiferimento] varchar(7),
-				[DataDocumentoRiferimento] varchar(6),
+				[DataNotaCredito] [date] NULL,
 				[NomeLocale] varchar(25),
 				[IndirizzoLocale] varchar(25),
 				[TitolareLocale] varchar(22),
@@ -37,12 +67,12 @@ IF NOT EXISTS
 				[NumeroGiornate] varchar(2),
 				[Filler1] varchar(15),
 				[Voce] varchar(4),
-				[Importo] varchar(9),
+				[Importo] [numeric](18,2),
 				[FillerA1] varchar(169),
-				[ImportIva5082] varchar(8),
-				[ImportoIva5183] varchar(8),
-				[ImportoTotaleInEuro] varchar(10),
-				[ImportoTotaleInLire] varchar(10),
+				[ImportoIva5082] [numeric](18,2),
+				[ImportoIva5183] [numeric](18,2),
+				[ImportoTotaleInEuro] [numeric](18,2),
+				[ImportoTotaleInLire] [numeric](18,2),
 				[FlagLireEuro] varchar(1),
 				[Filler2] varchar(20),
 				[NumeroDistinte] varchar(2),
@@ -50,8 +80,8 @@ IF NOT EXISTS
 				[NumeroDichiarazioni] varchar(2),
 				[IncassoNetto] varchar(12),
 				[NumeroBiglietti] varchar(6),
-				[ImportoImostaLorda] varchar(9),
-				[ImportoAbbuoniContestuali] varchar(8),
+				[ImportoImpostaLorda] [numeric](18,2),
+				[ImportoAbbuoniContestuali] [numeric](18,2),
 				[TipoStrumentoMeccanico] varchar(2),
 				[CodiceAccordoPerStrumMecc] varchar(2),
 				[Filler4] varchar(4),
@@ -74,9 +104,19 @@ IF NOT EXISTS
 				[TipoLocale] varchar(1),
 				[AssociazioneCategoriaLocale] varchar(2),
 				[ImponibileMedioNazionale] varchar(7),
-			)';
-	END
-ELSE
---	Ops! SET @CreateTableSQLQuery = 'TRUNCATE TABLE ' + @TableName;
+				[IsConfirmed] [bit] NOT NULL,
 
-EXEC (@CreateTableSQLQuery);
+			    CONSTRAINT [PK_' + @TableName + '] PRIMARY KEY CLUSTERED ([Id] ASC)
+			    WITH (PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON) ON [PRIMARY]
+			) ON [PRIMARY];			
+			';
+
+		EXEC (@CreateTableSQLQuery);
+
+		SET @CreateTableSQLQuery = 
+			'ALTER TABLE ' + @TableName + ' ADD CONSTRAINT [DF_' + @TableName + '_IsConfirmed] DEFAULT ((1)) FOR [IsConfirmed]'
+
+		EXEC (@CreateTableSQLQuery);
+	
+	END
+
