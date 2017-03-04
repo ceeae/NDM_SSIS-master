@@ -1,7 +1,6 @@
 
 /*
  * NDM_SSIS Readme
- * 
  */
 
 Package Setup
@@ -37,7 +36,7 @@ Current logging level is: OnError, OnTaskFailed, OnWarning.
 -- ProvvIncassi Table
 -- [IdSeprag] FK points to 'UnitaTerritorialiSeprag'
 -- [DataChiusuraElaborazione] contains a date when logically belongs to a closed a period
--- [IsConfirmed] dafault=True if to be considered for calculation on current open period
+-- [IsConfirmed] dafault=True to be considered for calculation on current open period
 
 -- Data Conversion Checks
 -- ======================
@@ -45,7 +44,7 @@ Current logging level is: OnError, OnTaskFailed, OnWarning.
 -- M501 DataFattura [varchar](6) 'ggmmaa'								DataQuietanza [date] (Error raised)
 -- M501 DataNotaCredito [varchar](6) 'ggmmaa'							DataDocumentoRiferimento [date] (Not raised any error. gets NULL)
 -- M501 CodiceProvincia [varchar](2) '00','01',...,'99','A0','A1',...   varchar[3] '000','001',...,'099','100','101',...
--- m501 CodiceBA [varchar](30)											CodiceLocale (will change in the future)
+-- M501 CodiceBA [varchar](30)											CodiceLocale (will change in the future)
 -- M501 Importo [varchar](9) '(7,2) nnnnnnnnn'							decimal(18,2)
 -- M501 ImportoIva5082 [varchar](8) '(6,2) nnnnnnnn'					decimal(18,2)
 -- M501 ImportoIva5183 [varchar](8) '(6,2) nnnnnnnn'					decimal(18,2)
@@ -55,6 +54,8 @@ Current logging level is: OnError, OnTaskFailed, OnWarning.
 -- M501 ImportoAbbuoniContestuali [varchar](8) '(6,2) nnnnnnnn'			decimal(18,2)
 
 
+Open Questions
+==============
 
-
-
+* CodiceProvincia A9=109 and B0=110 ?
+* DataNotaCredito '000000' or any conversion error implies DataDocumentoRiferimento = NULL

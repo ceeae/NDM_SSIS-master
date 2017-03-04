@@ -8,6 +8,7 @@ IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = @Table
 		SET @CreateTableSQLQuery = 'CREATE TABLE ' + @TableName + 
 			' (
 				[id] [int] IDENTITY(1,1) NOT NULL,
+				[Package] [varchar](500) NOT NULL,
 				[Filename] [varchar](500) NOT NULL,
 				[ImportStartDate] [datetime] NOT NULL,
 				[ImportEndDate] [datetime] NULL,
