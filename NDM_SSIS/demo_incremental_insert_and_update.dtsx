@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="demo_incremental_insert_and_update"
   DTS:PackageType="5"
-  DTS:VersionBuild="42"
-  DTS:VersionGUID="{73D6FEA9-00E9-4E00-8113-74FE9D7B157D}">
+  DTS:VersionBuild="47"
+  DTS:VersionGUID="{5280E0F4-95F8-49F3-A22F-9FF2173BD00E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -181,7 +181,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Bulk Insert (Left Join)"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -204,7 +204,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Bulk Update (Inner Join)"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -227,7 +227,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Create Journal Entry"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -260,24 +260,6 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Bulk Update &amp; Insert\Create Journal Table (if not exists)"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{b37b5f06-29f0-42bb-94aa-37f38d81f6fc}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Create Journal Table (if not exists)"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{790CD2F4-3156-4BD7-A417-A0D2AB077BDB}"
-              SQLTask:SqlStmtSourceType="FileConnection"
-              SQLTask:SqlStatementSource="SetupTable_Journal.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
           DTS:refId="Package\Bulk Update &amp; Insert\Update Journal Entry"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -286,7 +268,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Update Journal Entry"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -315,14 +297,6 @@
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
-          DTS:refId="Package\Bulk Update &amp; Insert.PrecedenceConstraints[Constraint]"
-          DTS:CreationName=""
-          DTS:DTSID="{C9258F07-C02A-451D-BB23-AB5FAA4BB47E}"
-          DTS:From="Package\Bulk Update &amp; Insert\Create Journal Table (if not exists)"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint"
-          DTS:To="Package\Bulk Update &amp; Insert\Bulk Update (Inner Join)" />
-        <DTS:PrecedenceConstraint
           DTS:refId="Package\Bulk Update &amp; Insert.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
           DTS:DTSID="{C1911EEC-8597-4849-A7F4-81E3A7330867}"
@@ -349,25 +323,75 @@
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Demo IIU Setup Tables"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
+      DTS:refId="Package\Setup Tables"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
       DTS:Disabled="True"
-      DTS:DTSID="{F44A58FE-FE3C-4FDE-B00C-3F4D7610C35A}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{0C38DB74-C240-42D5-92A5-B993B2D201A2}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Demo IIU Setup Tables"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ObjectName="Setup Tables">
       <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{790CD2F4-3156-4BD7-A417-A0D2AB077BDB}"
-          SQLTask:SqlStmtSourceType="FileConnection"
-          SQLTask:SqlStatementSource="Demo_IIU_SetupTables.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Setup Tables\Create Journal Table (if not exists)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{b37b5f06-29f0-42bb-94aa-37f38d81f6fc}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Create Journal Table (if not exists)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{790CD2F4-3156-4BD7-A417-A0D2AB077BDB}"
+              SQLTask:SqlStmtSourceType="FileConnection"
+              SQLTask:SqlStatementSource="SetupTable_Journal.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Setup Tables\Demo IIU Setup Tables"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F44A58FE-FE3C-4FDE-B00C-3F4D7610C35A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Demo IIU Setup Tables"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{790CD2F4-3156-4BD7-A417-A0D2AB077BDB}"
+              SQLTask:SqlStmtSourceType="FileConnection"
+              SQLTask:SqlStatementSource="Demo_IIU_SetupTables.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Setup Tables.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{4E9506B0-2FBC-4CDA-8DCC-6B6AFFAFC01F}"
+          DTS:From="Package\Setup Tables\Demo IIU Setup Tables"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Setup Tables\Create Journal Table (if not exists)" />
+      </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C335419A-F4CD-4614-AF48-C608E536980C}"
+      DTS:From="Package\Setup Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Bulk Update &amp; Insert" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -380,36 +404,6 @@
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="189,42"
-          Id="Package\Demo IIU Setup Tables"
-          TopLeft="145,166" />
-        <NodeLayout
-          Size="188,61"
-          Id="Package\Bulk Update &amp; Insert\Create Journal Table (if not exists)"
-          TopLeft="34,5.5" />
-        <EdgeLayout
-          Id="Package\Bulk Update &amp; Insert.PrecedenceConstraints[Constraint]"
-          TopLeft="124.25,66.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37"
-              Start="0,0"
-              End="0,29.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="195,42"
           Id="Package\Bulk Update &amp; Insert\Bulk Update (Inner Join)"
@@ -523,6 +517,77 @@
           Size="548,375"
           Id="Package\Bulk Update &amp; Insert"
           TopLeft="393,54" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Setup Tables\Demo IIU Setup Tables"
+          TopLeft="25,5.5" />
+        <EdgeLayout
+          Id="Package\Setup Tables.PrecedenceConstraints[Constraint]"
+          TopLeft="117.25,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.5"
+              Start="0,0"
+              End="0,24">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="188,61"
+          Id="Package\Setup Tables\Create Journal Table (if not exists)"
+          TopLeft="21,79" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="219,195"
+          Size="219,238"
+          Id="Package\Setup Tables"
+          TopLeft="125,56" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="344,175">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49,66.5"
+              Start="0,0"
+              End="41.5,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="20.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.5,0"
+                    Point2="24.5,0"
+                    Point3="24.5,4" />
+                  <mssgle:LineSegment
+                    End="24.5,62.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.5,62.5"
+                    Point2="24.5,66.5"
+                    Point3="28.5,66.5" />
+                  <mssgle:LineSegment
+                    End="41.5,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>

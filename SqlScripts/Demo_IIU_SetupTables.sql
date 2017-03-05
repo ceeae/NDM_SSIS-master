@@ -1,6 +1,7 @@
 -- Create a 'View' kind of table
 
-DROP TABLE [dbo].[VInput]
+IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'VInput')
+	DROP TABLE [dbo].[VInput]
 
 CREATE TABLE [dbo].[VInput](
 	[NumeroAtto] [nchar](10) NOT NULL,
@@ -8,7 +9,8 @@ CREATE TABLE [dbo].[VInput](
 	[Test] [varchar](50) NULL
 ) ON [PRIMARY]
 
-DROP TABLE [dbo].[VOutput]
+IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'VOutput')
+	DROP TABLE [dbo].[VOutput]
 
 CREATE TABLE [dbo].[VOutput](
 	[InsertedOn] [datetime] NOT NULL,  
