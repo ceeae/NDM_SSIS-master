@@ -14,8 +14,8 @@
     <Manifest>
       <DTSPackages>
         <DtsPackage FormatVersion="8">
-          <Name>demo_incremental_insert_and_update.dtsx</Name>
-          <FullPath>demo_incremental_insert_and_update.dtsx</FullPath>
+          <Name>demo_incr_insert_and_update.dtsx</Name>
+          <FullPath>demo_incr_insert_and_update.dtsx</FullPath>
           <References />
         </DtsPackage>
         <DtsPackage FormatVersion="8">

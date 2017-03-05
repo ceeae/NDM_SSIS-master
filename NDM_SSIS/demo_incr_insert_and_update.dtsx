@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-9PO21MC"
   DTS:CreatorName="DESKTOP-9PO21MC\pietro"
-  DTS:DTSID="{E28F1E7C-F743-41D7-96D4-86AE5805D936}"
+  DTS:DTSID="{5B7BA874-6539-4548-8EB2-99F1CA31DD63}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="13.0.4001.0"
   DTS:LocaleID="1033"
-  DTS:ObjectName="demo_incremental_insert_and_update"
+  DTS:ObjectName="demo_incr_insert_and_update"
   DTS:PackageType="5"
-  DTS:VersionBuild="47"
-  DTS:VersionGUID="{5280E0F4-95F8-49F3-A22F-9FF2173BD00E}">
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{34C7479F-F8E1-4E45-B642-5E8D425FA594}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -403,79 +403,49 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="195,42"
-          Id="Package\Bulk Update &amp; Insert\Bulk Update (Inner Join)"
-          TopLeft="23,103.5" />
-        <EdgeLayout
-          Id="Package\Bulk Update &amp; Insert.PrecedenceConstraints[Constraint 1]"
-          TopLeft="120.5,145.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="8,41"
-              Start="0,0"
-              End="8,33.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.5"
-                    Point2="0,20.5"
-                    Point3="4,20.5" />
-                  <mssgle:LineSegment
-                    End="4,20.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="4,20.5"
-                    Point2="8,20.5"
-                    Point3="8,24.5" />
-                  <mssgle:LineSegment
-                    End="8,33.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="175,42"
-          Id="Package\Bulk Update &amp; Insert\Create Journal Entry"
-          TopLeft="41,186.5" />
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="181,42"
           Id="Package\Bulk Update &amp; Insert\Bulk Insert (Left Join)"
-          TopLeft="250,101" />
+          TopLeft="255.555555555556,34.3333333333333" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Bulk Update &amp; Insert\Bulk Update (Inner Join)"
+          TopLeft="35.2222222222222,42.3888888888889" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Bulk Update &amp; Insert\Create Journal Entry"
+          TopLeft="51,116.5" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Bulk Update &amp; Insert\Update Journal Entry"
+          TopLeft="256.333333333333,113.555555555556" />
         <EdgeLayout
-          Id="Package\Bulk Update &amp; Insert.PrecedenceConstraints[Constraint 2]"
-          TopLeft="156.333333333333,186.5">
+          Id="Package\Bulk Update &amp; Insert.PrecedenceConstraints[Constraint 1]"
+          TopLeft="132.722222222222,84.3888888888889">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="155.333333333333,-43.5"
+              EndConnector="-22.0555555555555,32.1111111111111"
               Start="0,0"
-              End="155.333333333333,-36">
+              End="-22.0555555555555,24.6111111111111">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-17.7580587890203" />
+                    End="0,15.0921102302756" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-17.7580587890203"
-                    Point2="0,-21.7580587890203"
-                    Point3="4,-21.7580587890203" />
+                    Point1="0,15.0921102302756"
+                    Point2="0,19.0921102302756"
+                    Point3="-4,19.0921102302756" />
                   <mssgle:LineSegment
-                    End="151.333333333333,-21.7580587890203" />
+                    End="-18.0555555555555,19.0921102302756" />
                   <mssgle:CubicBezierSegment
-                    Point1="151.333333333333,-21.7580587890203"
-                    Point2="155.333333333333,-21.7580587890203"
-                    Point3="155.333333333333,-25.7580587890203" />
+                    Point1="-18.0555555555555,19.0921102302756"
+                    Point2="-22.0555555555555,19.0921102302756"
+                    Point3="-22.0555555555555,23.0921102302756" />
                   <mssgle:LineSegment
-                    End="155.333333333333,-36" />
+                    End="-22.0555555555555,24.6111111111111" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -484,24 +454,66 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="178,42"
-          Id="Package\Bulk Update &amp; Insert\Update Journal Entry"
-          TopLeft="283,188" />
         <EdgeLayout
-          Id="Package\Bulk Update &amp; Insert.PrecedenceConstraints[Constraint 3]"
-          TopLeft="370.666666666667,143">
+          Id="Package\Bulk Update &amp; Insert.PrecedenceConstraints[Constraint 2]"
+          TopLeft="166.333333333333,116.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,45"
+              EndConnector="150.888888888889,-40.1666666666667"
               Start="0,0"
-              End="0,37.5">
+              End="150.888888888889,-32.6666666666667">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.5" />
+                    End="0,-16.0907745906279" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-16.0907745906279"
+                    Point2="0,-20.0907745906279"
+                    Point3="4,-20.0907745906279" />
+                  <mssgle:LineSegment
+                    End="146.888888888889,-20.0907745906279" />
+                  <mssgle:CubicBezierSegment
+                    Point1="146.888888888889,-20.0907745906279"
+                    Point2="150.888888888889,-20.0907745906279"
+                    Point3="150.888888888889,-24.0907745906279" />
+                  <mssgle:LineSegment
+                    End="150.888888888889,-32.6666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Bulk Update &amp; Insert.PrecedenceConstraints[Constraint 3]"
+          TopLeft="374.888888888889,76.3333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-29.5555555555555,37.2222222222222"
+              Start="0,0"
+              End="-29.5555555555555,29.7222222222222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.0845807472313" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.0845807472313"
+                    Point2="0,15.0845807472313"
+                    Point3="-4,15.0845807472313" />
+                  <mssgle:LineSegment
+                    End="-25.5555555555555,15.0845807472313" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-25.5555555555555,15.0845807472313"
+                    Point2="-29.5555555555555,15.0845807472313"
+                    Point3="-29.5555555555555,19.0845807472313" />
+                  <mssgle:LineSegment
+                    End="-29.5555555555555,29.7222222222222" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -513,10 +525,14 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="548,332"
-          Size="548,375"
+          PanelSize="548,207"
+          Size="548,250"
           Id="Package\Bulk Update &amp; Insert"
-          TopLeft="393,54" />
+          TopLeft="489.888888888889,18.9999999999999" />
+        <NodeLayout
+          Size="188,61"
+          Id="Package\Setup Tables\Create Journal Table (if not exists)"
+          TopLeft="21,79" />
         <NodeLayout
           Size="189,42"
           Id="Package\Setup Tables\Demo IIU Setup Tables"
@@ -543,43 +559,27 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="188,61"
-          Id="Package\Setup Tables\Create Journal Table (if not exists)"
-          TopLeft="21,79" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="219,195"
           Size="219,238"
           Id="Package\Setup Tables"
-          TopLeft="125,56" />
+          TopLeft="240.222222222222,20.5555555555555" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="344,175">
+          TopLeft="459.222222222222,141.777777777778">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="49,66.5"
+              EndConnector="30.6666666666668,0"
               Start="0,0"
-              End="41.5,66.5">
+              End="23.1666666666668,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="20.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="20.5,0"
-                    Point2="24.5,0"
-                    Point3="24.5,4" />
-                  <mssgle:LineSegment
-                    End="24.5,62.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="24.5,62.5"
-                    Point2="24.5,66.5"
-                    Point3="28.5,66.5" />
-                  <mssgle:LineSegment
-                    End="41.5,66.5" />
+                    End="23.1666666666668,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -588,6 +588,31 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="Notes:&#xD;&#xA;====&#xD;&#xA;&#xD;&#xA;* Scripts name &quot;Demo*.sql&quot;&#xD;&#xA;* Input table (view): VInput&#xD;&#xA;* Incremental Output: VOutput&#xD;&#xA;"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="192,136"
+          Id="3da7bef6-e817-4023-bfe2-c2bfe5b7733f"
+          TopLeft="37.7777777777777,19.8888888888889" />
+        <AnnotationLayout
+          Text="Disclaimer: this is just a Demo!"
+          ParentId="Package"
+          Size="233,38"
+          Id="631029a3-9f75-4e45-a496-85531559a116"
+          TopLeft="43.6666666666667,270.444444444444">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="11.25"
+              Color="#FF000000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
