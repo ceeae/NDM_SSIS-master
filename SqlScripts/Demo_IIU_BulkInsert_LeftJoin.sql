@@ -7,4 +7,6 @@ INSERT INTO VOutput (NumeroAtto, DataDocumento, Test)
 	FROM VInput A
 	LEFT JOIN VOutput B
 	ON A.NumeroAtto = B.NumeroAtto AND A.DataDocumento = B.DataDocumento
-	WHERE B.DataDocumento IS NULL AND B.NumeroAtto IS NULL
+	WHERE B.DataDocumento IS NULL AND B.NumeroAtto IS NULL;
+
+SELECT @@ROWCOUNT as RowsInserted;

@@ -13,6 +13,7 @@ IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = @Table
 				[ImportStartDate] [datetime] NOT NULL,
 				[ImportEndDate] [datetime] NULL,
 				[RowsInserted] [int] NULL,
+				[RowsUpdated] [int] NULL,
 				[RowsWithError] [int] NULL,
 			    CONSTRAINT [PK_' + @TableName + '] PRIMARY KEY CLUSTERED 
 					(
