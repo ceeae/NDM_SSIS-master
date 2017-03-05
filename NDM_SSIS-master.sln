@@ -13,6 +13,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SqlScripts", "SqlScripts", "{0DC839E7-B351-420B-9D78-D86E909028FE}"
 	ProjectSection(SolutionItems) = preProject
 		SqlScripts\CleanUp.sql = SqlScripts\CleanUp.sql
+		SqlScripts\Demo_IIU_BulkInsert_LeftJoin.sql = SqlScripts\Demo_IIU_BulkInsert_LeftJoin.sql
+		SqlScripts\Demo_IIU_BulkUpdate_InnerJoin.sql = SqlScripts\Demo_IIU_BulkUpdate_InnerJoin.sql
+		SqlScripts\Demo_IIU_SetupTables.sql = SqlScripts\Demo_IIU_SetupTables.sql
 		SqlScripts\SetupTable_Journal.sql = SqlScripts\SetupTable_Journal.sql
 		SqlScripts\SetupTable_NCAImport.sql = SqlScripts\SetupTable_NCAImport.sql
 		SqlScripts\UpdateTable_NCAwithSepragId.sql = SqlScripts\UpdateTable_NCAwithSepragId.sql

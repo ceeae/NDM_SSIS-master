@@ -1,0 +1,670 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/4/2017 6:45:46 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-9PO21MC"
+  DTS:CreatorName="DESKTOP-9PO21MC\pietro"
+  DTS:DTSID="{E28F1E7C-F743-41D7-96D4-86AE5805D936}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4001.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="demo_incremental_insert_and_update"
+  DTS:PackageType="5"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{2846954B-C08A-40AB-B651-97CB96A29E0B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{790CD2F4-3156-4BD7-A417-A0D2AB077BDB}"
+      DTS:ObjectName="DB">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::sConnectionStringDBImport]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=test;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Demo_IIU_SetupTables.sql]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{743A0F70-BDA9-4353-9911-BF12A061518A}"
+      DTS:ObjectName="Demo_IIU_SetupTables.sql">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::sConnectionStringFolderPathSQLScript] + "Demo_IIU_SetupTables.sql"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\vs15\NDM_SSIS-master\SqlScripts\Demo_IIU_SetupTables.sql" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{42BEC5F8-87E8-4A88-B150-F78A099948A7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="oDataSetFake">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E730F003-800C-4B84-B5AC-BC536099AAE4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sConnectionStringDBImport">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=.;Initial Catalog=test;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B8DBED9F-665A-4FE6-84DB-D5AA76A6E5E0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sConnectionStringFolderPathSQLScript">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\vs15\NDM_SSIS-master\SqlScripts\</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Demo IIU Setup Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F44A58FE-FE3C-4FDE-B00C-3F4D7610C35A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Demo IIU Setup Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{790CD2F4-3156-4BD7-A417-A0D2AB077BDB}"
+          SQLTask:SqlStmtSourceType="FileConnection"
+          SQLTask:SqlStatementSource="Demo_IIU_SetupTables.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Show VInput Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{5FD044C5-D265-4D19-9F57-6C1C4B9E86EA}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Show VInput Data">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Show VInput Data\OLE DB VInput"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB VInput"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[VInput]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Show VInput Data\OLE DB VInput.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Output].Columns[NumeroAtto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Output].ExternalColumns[NumeroAtto]"
+                      length="10"
+                      lineageId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Output].Columns[NumeroAtto]"
+                      name="NumeroAtto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Output].Columns[DataDocumento]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Output].ExternalColumns[DataDocumento]"
+                      lineageId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Output].Columns[DataDocumento]"
+                      name="DataDocumento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Output].Columns[Test]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Output].ExternalColumns[Test]"
+                      length="50"
+                      lineageId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Output].Columns[Test]"
+                      name="Test"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Output].ExternalColumns[NumeroAtto]"
+                      dataType="wstr"
+                      length="10"
+                      name="NumeroAtto" />
+                    <externalMetadataColumn
+                      refId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Output].ExternalColumns[DataDocumento]"
+                      dataType="dbDate"
+                      name="DataDocumento" />
+                    <externalMetadataColumn
+                      refId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Output].ExternalColumns[Test]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Test" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Error Output].Columns[NumeroAtto]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Error Output].Columns[NumeroAtto]"
+                      name="NumeroAtto" />
+                    <outputColumn
+                      refId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Error Output].Columns[DataDocumento]"
+                      dataType="dbDate"
+                      lineageId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Error Output].Columns[DataDocumento]"
+                      name="DataDocumento" />
+                    <outputColumn
+                      refId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Error Output].Columns[Test]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Error Output].Columns[Test]"
+                      name="Test" />
+                    <outputColumn
+                      refId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Show VInput Data\OLE DB VOutput"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB VOutput"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[VOutput]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Show VInput Data\OLE DB VOutput.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Output].Columns[NumeroAtto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Output].ExternalColumns[NumeroAtto]"
+                      length="10"
+                      lineageId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Output].Columns[NumeroAtto]"
+                      name="NumeroAtto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Output].Columns[DataDocumento]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Output].ExternalColumns[DataDocumento]"
+                      lineageId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Output].Columns[DataDocumento]"
+                      name="DataDocumento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Output].Columns[Test]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Output].ExternalColumns[Test]"
+                      length="50"
+                      lineageId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Output].Columns[Test]"
+                      name="Test"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Output].ExternalColumns[NumeroAtto]"
+                      dataType="wstr"
+                      length="10"
+                      name="NumeroAtto" />
+                    <externalMetadataColumn
+                      refId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Output].ExternalColumns[DataDocumento]"
+                      dataType="dbDate"
+                      name="DataDocumento" />
+                    <externalMetadataColumn
+                      refId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Output].ExternalColumns[Test]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Test" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Error Output].Columns[NumeroAtto]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Error Output].Columns[NumeroAtto]"
+                      name="NumeroAtto" />
+                    <outputColumn
+                      refId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Error Output].Columns[DataDocumento]"
+                      dataType="dbDate"
+                      lineageId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Error Output].Columns[DataDocumento]"
+                      name="DataDocumento" />
+                    <outputColumn
+                      refId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Error Output].Columns[Test]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Error Output].Columns[Test]"
+                      name="Test" />
+                    <outputColumn
+                      refId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Show VInput Data\Show VInput Recordset"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="Show VInput Recordset">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">oDataSetFake</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Show VInput Data\Show VInput Recordset.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Show VInput Data\Show VInput Recordset.Inputs[Recordset Destination Input].Columns[NumeroAtto]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="NumeroAtto"
+                      lineageId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Output].Columns[NumeroAtto]" />
+                    <inputColumn
+                      refId="Package\Show VInput Data\Show VInput Recordset.Inputs[Recordset Destination Input].Columns[DataDocumento]"
+                      cachedDataType="dbDate"
+                      cachedName="DataDocumento"
+                      lineageId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Output].Columns[DataDocumento]" />
+                    <inputColumn
+                      refId="Package\Show VInput Data\Show VInput Recordset.Inputs[Recordset Destination Input].Columns[Test]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Test"
+                      lineageId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Output].Columns[Test]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Show VInput Data\Show VOutput Recordset"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="Show VOutput Recordset">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::oDataSetFake</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Show VInput Data\Show VOutput Recordset.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Show VInput Data\Show VOutput Recordset.Inputs[Recordset Destination Input].Columns[NumeroAtto]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="NumeroAtto"
+                      lineageId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Output].Columns[NumeroAtto]" />
+                    <inputColumn
+                      refId="Package\Show VInput Data\Show VOutput Recordset.Inputs[Recordset Destination Input].Columns[DataDocumento]"
+                      cachedDataType="dbDate"
+                      cachedName="DataDocumento"
+                      lineageId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Output].Columns[DataDocumento]" />
+                    <inputColumn
+                      refId="Package\Show VInput Data\Show VOutput Recordset.Inputs[Recordset Destination Input].Columns[Test]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Test"
+                      lineageId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Output].Columns[Test]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Show VInput Data.Paths[OLE DB Source Output]"
+              endId="Package\Show VInput Data\Show VInput Recordset.Inputs[Recordset Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Show VInput Data\OLE DB VInput.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Show VInput Data.Paths[OLE DB Source Output1]"
+              endId="Package\Show VInput Data\Show VOutput Recordset.Inputs[Recordset Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Show VInput Data\OLE DB VOutput.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3D81086D-1535-490B-9E8E-072A9C63723A}"
+      DTS:From="Package\Demo IIU Setup Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Show VInput Data" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Demo IIU Setup Tables"
+          TopLeft="319,58" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Show VInput Data"
+          TopLeft="336.5,146.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="416.25,100">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.5"
+              Start="0,0"
+              End="0,39">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Show VInput Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Show VInput Data\OLE DB VInput"
+          TopLeft="206,133" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Show VInput Data\Show VInput Recordset"
+          TopLeft="183,258" />
+        <EdgeLayout
+          Id="Package\Show VInput Data.Paths[OLE DB Source Output]"
+          TopLeft="279.5,175">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,83"
+              Start="0,0"
+              End="0,75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,29.75,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Show VInput Data\OLE DB VOutput"
+          TopLeft="447,124" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Show VInput Data\Show VOutput Recordset"
+          TopLeft="430,256" />
+        <EdgeLayout
+          Id="Package\Show VInput Data.Paths[OLE DB Source Output1]"
+          TopLeft="527,166">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,90"
+              Start="0,0"
+              End="0,82.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,33.25,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Show VInput Data\OLE DB VInput">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Show VInput Data\OLE DB VOutput">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

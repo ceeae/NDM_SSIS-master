@@ -14,6 +14,11 @@
     <Manifest>
       <DTSPackages>
         <DtsPackage FormatVersion="8">
+          <Name>demo_incremental_insert_and_update.dtsx</Name>
+          <FullPath>demo_incremental_insert_and_update.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
           <Name>import_ff_nca_m501.dtsx</Name>
           <FullPath>import_ff_nca_m501.dtsx</FullPath>
           <References />
