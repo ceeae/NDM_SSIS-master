@@ -17,7 +17,7 @@ IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = @Table
 				[NumeroQuietanza] varchar(7),
 				[CodiceProvincia] [varchar](3) NULL,
 				[CodiceAgenzia] varchar(2),
-				[NumeroFattura] varchar(7),
+				[NumeroFattura] varchar(10),
 				[DataFattura] [date] NULL,
 				[CodiceBA] [varchar](30) NULL,
 				[TipoDocumento] varchar(2),
@@ -80,6 +80,7 @@ IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = @Table
 				[AssociazioneCategoriaLocale] varchar(2),
 				[ImponibileMedioNazionale] varchar(7),
 				[IsConfirmed] [bit] NOT NULL,
+				[InsertedOn] [datetime] NOT NULL,
 
 			    CONSTRAINT [PK_' + @TableName + '] PRIMARY KEY CLUSTERED ([Id] ASC)
 			    WITH (PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON) ON [PRIMARY]
@@ -89,6 +90,10 @@ IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = @Table
 
 		SET @CreateTableSQLQuery = 
 			'ALTER TABLE ' + @TableName + ' ADD CONSTRAINT [DF_' + @TableName + '_IsConfirmed] DEFAULT ((1)) FOR [IsConfirmed]'
+		EXEC (@CreateTableSQLQuery);
+
+		SET @CreateTableSQLQuery = 
+			'ALTER TABLE ' + @TableName + ' ADD CONSTRAINT [DF_' + @TableName + '_InsertedOn] DEFAULT (GETUTCDATE()) FOR [InsertedOn]'
 		EXEC (@CreateTableSQLQuery);
 
 		-- Add FK to [UnitaTerritorialiSeprag] Table

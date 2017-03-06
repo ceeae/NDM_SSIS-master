@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="import_ff_nca_m501"
   DTS:PackageType="5"
-  DTS:VersionBuild="382"
-  DTS:VersionGUID="{9932B5AD-E1B4-49A0-B415-FD3AB3F1BFDB}">
+  DTS:VersionBuild="395"
+  DTS:VersionGUID="{D05E91B7-2219-4802-92D4-6747614AC436}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1411,6 +1411,15 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{577F46BA-9DEF-4875-83A8-F6A0EBF6CCD7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="uRowsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="21">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{6025406D-6C04-4BB6-A0B9-2B73E514C3D2}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
@@ -1540,24 +1549,6 @@
   </DTS:LoggingOptions>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Create Journal Table (if not exists)"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{975D1842-3015-4FA9-B256-7021A73B9BD3}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Create Journal Table (if not exists)"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{790CD2F4-3156-4BD7-A417-A0D2AB077BDB}"
-          SQLTask:SqlStmtSourceType="FileConnection"
-          SQLTask:SqlStatementSource="SetupTable_Journal.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\Foreach FF NCA (M501) in Import Folder"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="List All TXT Files"
@@ -1660,13 +1651,15 @@
             DTS:FilterKind="0" />
           <DTS:PropertyExpression
             DTS:Name="SqlStatementSource">"INSERT INTO " + @[User::sTableNameJournal] +
-" (Package, Filename, ImportStartDate, RowsInserted, RowsWithError) " +
-"VALUES ( ?, ?, GETUTCDATE(), 0, 0);" + 
+" (Package, Filename) " +
+
+"VALUES ( ?, ?);" + 
+
 " SELECT SCOPE_IDENTITY() as LastId"</DTS:PropertyExpression>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{790CD2F4-3156-4BD7-A417-A0D2AB077BDB}"
-              SQLTask:SqlStatementSource="INSERT INTO ProvvJournal (Package, Filename, ImportStartDate, RowsInserted, RowsWithError) VALUES ( ?, ?, GETUTCDATE(), 0, 0); SELECT SCOPE_IDENTITY() as LastId"
+              SQLTask:SqlStatementSource="INSERT INTO ProvvJournal (Package, Filename) VALUES ( ?, ?); SELECT SCOPE_IDENTITY() as LastId"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="LastId"
@@ -1684,47 +1677,6 @@
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="-1" />
             </SQLTask:SqlTaskData>
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Foreach FF NCA (M501) in Import Folder\Create NCA Table (if not exists)"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{99AE1C10-EE8E-45EB-BC9C-9B2E4143430F}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Create NCA Table (if not exists)"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:EventHandlers>
-            <DTS:EventHandler
-              DTS:refId="Package\Foreach FF NCA (M501) in Import Folder\Create NCA Table (if not exists).EventHandlers[OnError]"
-              DTS:CreationName="OnError"
-              DTS:DTSID="{F3FE7B95-B81A-44A3-992F-3D3BFCDA41C8}"
-              DTS:EventID="333797564"
-              DTS:EventName="OnError"
-              DTS:LocaleID="-1">
-              <DTS:Variables>
-                <DTS:Variable
-                  DTS:CreationName=""
-                  DTS:Description="The propagate property of the event"
-                  DTS:DTSID="{EF227A14-EA21-4AED-9BCD-3C7080A9BC9E}"
-                  DTS:IncludeInDebugDump="6789"
-                  DTS:Namespace="System"
-                  DTS:ObjectName="Propagate">
-                  <DTS:VariableValue
-                    DTS:DataType="11">-1</DTS:VariableValue>
-                </DTS:Variable>
-              </DTS:Variables>
-              <DTS:Executables />
-            </DTS:EventHandler>
-          </DTS:EventHandlers>
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{790CD2F4-3156-4BD7-A417-A0D2AB077BDB}"
-              SQLTask:SqlStmtSourceType="FileConnection"
-              SQLTask:SqlStatementSource="SetupTable_NCAImport.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -1825,6 +1777,13 @@
                           cachedLength="2"
                           cachedName="CodiceProvincia"
                           lineageId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Read FF NCA (M501) from Staging.Outputs[Flat File Source Output].Columns[CodiceProvincia]" />
+                        <inputColumn
+                          refId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields.Inputs[Derived Column Input].Columns[NumeroFattura]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="7"
+                          cachedName="NumeroFattura"
+                          lineageId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Read FF NCA (M501) from Staging.Outputs[Flat File Source Output].Columns[NumeroFattura]" />
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -1909,7 +1868,7 @@
                           refId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoIva5082]"
                           dataType="numeric"
                           errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
+                          errorRowDisposition="RedirectRow"
                           lineageId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoIva5082]"
                           name="cImportoIva5082"
                           precision="18"
@@ -1933,7 +1892,7 @@
                           refId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoIva5183]"
                           dataType="numeric"
                           errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
+                          errorRowDisposition="RedirectRow"
                           lineageId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoIva5183]"
                           name="cImportoIva5183"
                           precision="18"
@@ -1957,7 +1916,7 @@
                           refId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoTotaleInEuro]"
                           dataType="numeric"
                           errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
+                          errorRowDisposition="RedirectRow"
                           lineageId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoTotaleInEuro]"
                           name="cImportoTotaleInEuro"
                           precision="18"
@@ -1981,7 +1940,7 @@
                           refId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoTotaleInLire]"
                           dataType="numeric"
                           errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
+                          errorRowDisposition="RedirectRow"
                           lineageId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoTotaleInLire]"
                           name="cImportoTotaleInLire"
                           precision="18"
@@ -1992,20 +1951,20 @@
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_NUMERIC,18,2)([SUBSTRING](#{Package\Foreach FF NCA (M501) in Import Folder\Import Data\Read FF NCA (M501) from Staging.Outputs[Flat File Source Output].Columns[ImportoTotaleInLire]},1,8) + "." + [SUBSTRING](#{Package\Foreach FF NCA (M501) in Import Folder\Import Data\Read FF NCA (M501) from Staging.Outputs[Flat File Source Output].Columns[ImportoTotaleInLire]},9,2))</property>
+                              name="Expression">(DT_NUMERIC,18,2)#{Package\Foreach FF NCA (M501) in Import Folder\Import Data\Read FF NCA (M501) from Staging.Outputs[Flat File Source Output].Columns[ImportoTotaleInLire]}</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_NUMERIC,18,2)(SUBSTRING(ImportoTotaleInLire,1,8) + "." + SUBSTRING(ImportoTotaleInLire,9,2))</property>
+                              name="FriendlyExpression">(DT_NUMERIC,18,2)ImportoTotaleInLire</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
                           refId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoImpostaLorda]"
                           dataType="numeric"
                           errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
+                          errorRowDisposition="RedirectRow"
                           lineageId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoImpostaLorda]"
                           name="cImportoImpostaLorda"
                           precision="18"
@@ -2029,7 +1988,7 @@
                           refId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoAbbuoniContestuali]"
                           dataType="numeric"
                           errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
+                          errorRowDisposition="RedirectRow"
                           lineageId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoAbbuoniContestuali]"
                           name="cImportoAbbuoniContestuali"
                           precision="18"
@@ -2054,7 +2013,7 @@
                           codePage="1252"
                           dataType="str"
                           errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
+                          errorRowDisposition="RedirectRow"
                           length="3"
                           lineageId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cCodiceProvincia]"
                           name="cCodiceProvincia"
@@ -2071,6 +2030,30 @@
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
                               name="FriendlyExpression">(DT_STR,3,1252)(CODEPOINT(CodiceProvincia) &lt; 65 ? RIGHT("000" + CodiceProvincia,3) : (DT_STR,3,1252)(((CODEPOINT(CodiceProvincia) - 64) * 100) + CODEPOINT(RIGHT(CodiceProvincia,1)) - 48))</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cNumeroFattura]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="RedirectRow"
+                          length="10"
+                          lineageId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cNumeroFattura]"
+                          name="cNumeroFattura"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,10,1252)("9" + [RIGHT]((DT_STR,4,1252)[YEAR]([GETDATE]()),2) + #{Package\Foreach FF NCA (M501) in Import Folder\Import Data\Read FF NCA (M501) from Staging.Outputs[Flat File Source Output].Columns[NumeroFattura]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,10,1252)("9" + RIGHT((DT_STR,4,1252)YEAR(GETDATE()),2) + NumeroFattura)</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -8946,14 +8929,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                           externalMetadataColumnId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Write NCA Table.Inputs[OLE DB Destination Input].ExternalColumns[CodiceAgenzia]"
                           lineageId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Read FF NCA (M501) from Staging.Outputs[Flat File Source Output].Columns[CodiceAgenzia]" />
                         <inputColumn
-                          refId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Write NCA Table.Inputs[OLE DB Destination Input].Columns[NumeroFattura]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="7"
-                          cachedName="NumeroFattura"
-                          externalMetadataColumnId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Write NCA Table.Inputs[OLE DB Destination Input].ExternalColumns[NumeroFattura]"
-                          lineageId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Read FF NCA (M501) from Staging.Outputs[Flat File Source Output].Columns[NumeroFattura]" />
-                        <inputColumn
                           refId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Write NCA Table.Inputs[OLE DB Destination Input].Columns[TipoDocumento]"
                           cachedCodepage="1252"
                           cachedDataType="str"
@@ -9452,6 +9427,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                           cachedName="cCodiceProvincia"
                           externalMetadataColumnId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Write NCA Table.Inputs[OLE DB Destination Input].ExternalColumns[CodiceProvincia]"
                           lineageId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cCodiceProvincia]" />
+                        <inputColumn
+                          refId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Write NCA Table.Inputs[OLE DB Destination Input].Columns[cNumeroFattura]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="cNumeroFattura"
+                          externalMetadataColumnId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Write NCA Table.Inputs[OLE DB Destination Input].ExternalColumns[NumeroFattura]"
+                          lineageId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cNumeroFattura]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -9494,7 +9477,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                           refId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Write NCA Table.Inputs[OLE DB Destination Input].ExternalColumns[NumeroFattura]"
                           codePage="1252"
                           dataType="str"
-                          length="7"
+                          length="10"
                           name="NumeroFattura" />
                         <externalMetadataColumn
                           refId="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Write NCA Table.Inputs[OLE DB Destination Input].ExternalColumns[TipoDocumento]"
@@ -10001,13 +9984,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             DTS:FilterKind="0" />
           <DTS:PropertyExpression
             DTS:Name="SqlStatementSource">"UPDATE " + @[User::sTableNameJournal] + 
-" SET ImportEndDate = GETUTCDATE(), RowsInserted = ?, RowsWithError = ? WHERE id = ?"</DTS:PropertyExpression>
+" SET ImportEndDate = GETUTCDATE(), RowsInserted = ?, RowsUpdated = ?, RowsWithError = ? WHERE id = ?"</DTS:PropertyExpression>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{790CD2F4-3156-4BD7-A417-A0D2AB077BDB}"
-              SQLTask:SqlStatementSource="UPDATE ProvvJournal SET ImportEndDate = GETUTCDATE(), RowsInserted = ?, RowsWithError = ? WHERE id = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="UPDATE ProvvJournal SET ImportEndDate = GETUTCDATE(), RowsInserted = ?, RowsUpdated = ?, RowsWithError = ? WHERE id = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="2"
+                SQLTask:ParameterName="3"
                 SQLTask:DtsVariableName="User::uLastId"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="19"
@@ -10019,8 +10002,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                 SQLTask:DataType="19"
                 SQLTask:ParameterSize="-1" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="1"
+                SQLTask:ParameterName="2"
                 SQLTask:DtsVariableName="User::uRowsWithError"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="19"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::uRowsUpdated"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="19"
                 SQLTask:ParameterSize="-1" />
@@ -10042,7 +10031,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{790CD2F4-3156-4BD7-A417-A0D2AB077BDB}"
               SQLTask:SqlStmtSourceType="FileConnection"
-              SQLTask:SqlStatementSource="UpdateTable_NCAwithSepragId.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="UpdateTable_NCAwithSepragId.sql"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="RowsUpdated"
+                SQLTask:DtsVariableName="User::uRowsUpdated" />
+            </SQLTask:SqlTaskData>
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -10058,11 +10052,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach FF NCA (M501) in Import Folder.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{40F2180B-A679-41D8-B71C-2D84AA2B0F0D}"
+          DTS:DTSID="{8CBBC58B-14A3-4DF4-8F00-8FF74C1BEE40}"
           DTS:From="Package\Foreach FF NCA (M501) in Import Folder\Move File to Staging"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
-          DTS:To="Package\Foreach FF NCA (M501) in Import Folder\Create NCA Table (if not exists)" />
+          DTS:To="Package\Foreach FF NCA (M501) in Import Folder\Import Data" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach FF NCA (M501) in Import Folder.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
@@ -10079,14 +10073,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 3"
           DTS:To="Package\Foreach FF NCA (M501) in Import Folder\Update NCA Table with SepragId" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Foreach FF NCA (M501) in Import Folder.PrecedenceConstraints[Constraint 4]"
-          DTS:CreationName=""
-          DTS:DTSID="{C1949C40-B2EB-40FA-879C-22D96589E744}"
-          DTS:From="Package\Foreach FF NCA (M501) in Import Folder\Create NCA Table (if not exists)"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 4"
-          DTS:To="Package\Foreach FF NCA (M501) in Import Folder\Import Data" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach FF NCA (M501) in Import Folder.PrecedenceConstraints[Constraint 5]"
           DTS:CreationName=""
@@ -10128,13 +10114,94 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:VariableName="User::sFilenameToImport" />
       </DTS:ForEachVariableMappings>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Setup Tables"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{60EE107A-6BE9-4330-B3B6-D0702AEA9428}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Setup Tables">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Setup Tables\Create Journal Table (if not exists)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{975D1842-3015-4FA9-B256-7021A73B9BD3}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Create Journal Table (if not exists)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{790CD2F4-3156-4BD7-A417-A0D2AB077BDB}"
+              SQLTask:SqlStmtSourceType="FileConnection"
+              SQLTask:SqlStatementSource="SetupTable_Journal.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Setup Tables\Create NCA Table (if not exists)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{99AE1C10-EE8E-45EB-BC9C-9B2E4143430F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Create NCA Table (if not exists)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\Setup Tables\Create NCA Table (if not exists).EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{F3FE7B95-B81A-44A3-992F-3D3BFCDA41C8}"
+              DTS:EventID="333797564"
+              DTS:EventName="OnError"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{EF227A14-EA21-4AED-9BCD-3C7080A9BC9E}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables />
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{790CD2F4-3156-4BD7-A417-A0D2AB077BDB}"
+              SQLTask:SqlStmtSourceType="FileConnection"
+              SQLTask:SqlStatementSource="SetupTable_NCAImport.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Setup Tables.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{A1EE9F66-6CFE-48E2-BB71-85118459B915}"
+          DTS:From="Package\Setup Tables\Create Journal Table (if not exists)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Setup Tables\Create NCA Table (if not exists)" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{EF28399B-50CC-4B41-891E-8805053E5D30}"
-      DTS:From="Package\Create Journal Table (if not exists)"
+      DTS:DTSID="{02CB2F61-C8D0-496A-9327-ACF0D0467140}"
+      DTS:From="Package\Setup Tables"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Foreach FF NCA (M501) in Import Folder" />
@@ -10150,11 +10217,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="188,61"
-          Id="Package\Create Journal Table (if not exists)"
-          TopLeft="206.888888888889,226.277777777778" />
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="133,42"
           Id="Package\Foreach FF NCA (M501) in Import Folder\Archive File"
@@ -10164,13 +10227,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\Foreach FF NCA (M501) in Import Folder\Create Journal Entry"
           TopLeft="26.0714285714286,32.5357142857143" />
         <NodeLayout
-          Size="165,46"
-          Id="Package\Foreach FF NCA (M501) in Import Folder\Create NCA Table (if not exists)"
-          TopLeft="25.4999999999999,178.888888888889" />
-        <NodeLayout
           Size="136,42"
           Id="Package\Foreach FF NCA (M501) in Import Folder\Import Data"
-          TopLeft="132.607142857143,263.25" />
+          TopLeft="45.607142857143,180.25" />
         <NodeLayout
           Size="175,42"
           Id="Package\Foreach FF NCA (M501) in Import Folder\Move File to Staging"
@@ -10206,28 +10265,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Foreach FF NCA (M501) in Import Folder.PrecedenceConstraints[Constraint 1]"
-          TopLeft="108.25,146.964285714286">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,31.924603174603"
-              Start="0,0"
-              End="0,24.424603174603">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.424603174603" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Foreach FF NCA (M501) in Import Folder.PrecedenceConstraints[Constraint 2]"
           TopLeft="310.571428571428,94.821428571429">
           <EdgeLayout.Curve>
@@ -10251,64 +10288,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach FF NCA (M501) in Import Folder.PrecedenceConstraints[Constraint 3]"
-          TopLeft="221.940476190476,263.25">
+          TopLeft="181.607142857143,201.625">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="80.0595238095237,-40.25"
+              EndConnector="36.392857142857,0"
               Start="0,0"
-              End="80.0595238095237,-32.75">
+              End="28.892857142857,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-12.3808139534884" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-12.3808139534884"
-                    Point2="0,-16.3808139534884"
-                    Point3="4,-16.3808139534884" />
-                  <mssgle:LineSegment
-                    End="76.0595238095237,-16.3808139534884" />
-                  <mssgle:CubicBezierSegment
-                    Point1="76.0595238095237,-16.3808139534884"
-                    Point2="80.0595238095237,-16.3808139534884"
-                    Point3="80.0595238095237,-20.3808139534884" />
-                  <mssgle:LineSegment
-                    End="80.0595238095237,-32.75" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach FF NCA (M501) in Import Folder.PrecedenceConstraints[Constraint 4]"
-          TopLeft="108,224.888888888889">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="71.2738095238098,38.361111111111"
-              Start="0,0"
-              End="71.2738095238098,30.861111111111">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.7490310077519" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.7490310077519"
-                    Point2="0,22.7490310077519"
-                    Point3="4,22.7490310077519" />
-                  <mssgle:LineSegment
-                    End="67.2738095238098,22.7490310077519" />
-                  <mssgle:CubicBezierSegment
-                    Point1="67.2738095238098,22.7490310077519"
-                    Point2="71.2738095238098,22.7490310077519"
-                    Point3="71.2738095238098,26.7490310077519" />
-                  <mssgle:LineSegment
-                    End="71.2738095238098,30.861111111111" />
+                    End="28.892857142857,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10339,27 +10330,86 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="446,368"
-          Size="446,411"
-          Id="Package\Foreach FF NCA (M501) in Import Folder"
-          TopLeft="435.388888888889,48.25" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="394.888888888889,255.263888888889">
+          Id="Package\Foreach FF NCA (M501) in Import Folder.PrecedenceConstraints[Constraint 1]"
+          TopLeft="111.053571428572,146.964285714286">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="40.5,0"
+              EndConnector="0,33.285714285714"
               Start="0,0"
-              End="33,0">
+              End="0,25.785714285714">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="33,0" />
+                    End="0,25.785714285714" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="427,262"
+          Size="427,305"
+          Id="Package\Foreach FF NCA (M501) in Import Folder"
+          TopLeft="435.388888888889,48.25" />
+        <NodeLayout
+          Size="188,61"
+          Id="Package\Setup Tables\Create Journal Table (if not exists)"
+          TopLeft="28,39.5" />
+        <NodeLayout
+          Size="165,46"
+          Id="Package\Setup Tables\Create NCA Table (if not exists)"
+          TopLeft="37.6111111111109,152.111111111111" />
+        <EdgeLayout
+          Id="Package\Setup Tables.PrecedenceConstraints[Constraint]"
+          TopLeft="121.055555555555,100.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.611111111111"
+              Start="0,0"
+              End="0,44.111111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.111111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="244,255"
+          Size="244,298"
+          Id="Package\Setup Tables"
+          TopLeft="162,53" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="406,201.375">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.388888888889,0"
+              Start="0,0"
+              End="21.888888888889,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="21.888888888889,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10439,9 +10489,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10463,9 +10511,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10487,9 +10533,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10511,9 +10555,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10607,9 +10649,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10631,9 +10671,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10655,9 +10693,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10679,9 +10715,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10703,9 +10737,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

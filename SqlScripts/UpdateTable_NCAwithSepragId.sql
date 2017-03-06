@@ -14,7 +14,8 @@ BEGIN
 
 				ORDER BY uts.ID
 				) n 
-				WHERE n.seprag = ProvvIncassi.CodiceSede + ProvvIncassi.CodiceProvincia + ProvvIncassi.CodiceAgenzia
+				WHERE n.seprag = ProvvIncassi.CodiceSede + ProvvIncassi.CodiceProvincia + ProvvIncassi.CodiceAgenzia;
+		 SELECT @@ROWCOUNT AS RowsUpdated;
 		'
 	EXEC (@CreateTableSQLQuery);
 END

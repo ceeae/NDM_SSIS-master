@@ -21,5 +21,10 @@ IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = @Table
 					) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 			 ) ON [PRIMARY]';
 		
-		EXEC (@CreateTableSQLQuery);		
+		EXEC (@CreateTableSQLQuery);
+				
+		SET @CreateTableSQLQuery = 
+			'ALTER TABLE ' + @TableName + ' ADD CONSTRAINT [DF_' + @TableName + '_ImportStartDate] DEFAULT (GETUTCDATE()) FOR [ImportStartDate]'
+		EXEC (@CreateTableSQLQuery);
+
 	END

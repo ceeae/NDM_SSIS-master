@@ -42,6 +42,7 @@ Current logging level is: OnError, OnTaskFailed, OnWarning.
 -- ======================
 
 -- M501 DataFattura [varchar](6) 'ggmmaa'								DataQuietanza [date] (Error raised)
+-- M501 NumeroFattura [varchar] (7)										NumeroFattura [varchar] (10) '9' + 'yy' + NumeroFattura
 -- M501 DataNotaCredito [varchar](6) 'ggmmaa'							DataDocumentoRiferimento [date] (Not raised any error. gets NULL)
 -- M501 CodiceProvincia [varchar](2) '00','01',...,'99','A0','A1',...   varchar[3] '000','001',...,'099','100','101',...
 -- M501 CodiceBA [varchar](30)											CodiceLocale (will change in the future)

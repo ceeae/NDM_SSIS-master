@@ -30,7 +30,7 @@ CREATE TABLE [dbo].[VOutput](
 ) ON [PRIMARY]
 
 ALTER TABLE [dbo].[VOutput]
-	ADD CONSTRAINT [K_InsertedOn_GetUtcDate]
+	ADD CONSTRAINT [DF_InsertedOn]
 		DEFAULT GETUTCDATE() FOR [InsertedOn]
 
 GO
