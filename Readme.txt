@@ -28,7 +28,7 @@ Please define logging levels by selecting "SSIS -> Logging..." menu option.
 Information is logged on database table under "Tables -> SystemTables -> dbo.sysssislog".
 Current logging level is: OnError, OnTaskFailed, OnWarning.
 
--- @Fri, 3rd March 2017
+-- @Fri, 6th March 2017
 
 -- Notes
 -- =====
@@ -36,7 +36,8 @@ Current logging level is: OnError, OnTaskFailed, OnWarning.
 -- ProvvIncassi Table
 -- [IdSeprag] FK points to 'UnitaTerritorialiSeprag'
 -- [DataChiusuraElaborazione] contains a date when logically belongs to a closed a period
--- [IsConfirmed] dafault=True to be considered for calculation on current open period
+-- [IsConfirmed] default=True to be considered for calculation on current open period
+-- [InsertedOn] default=GetUtcDate()
 
 -- Data Conversion Checks
 -- ======================
@@ -60,3 +61,9 @@ Open Questions
 
 * CodiceProvincia A9=109 and B0=110 ?
 * DataNotaCredito '000000' or any conversion error implies DataDocumentoRiferimento = NULL
+* Splitting input filename "NCA-*.txt"
+* ... Import track "1" input filename "NCA-M501-*.txt"
+* ... Import track "2" input filename "NCA-M221-*.txt"
+
+
+

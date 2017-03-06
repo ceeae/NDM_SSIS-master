@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="splitter"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{3093C5BC-6F0E-47C1-92BE-D67BDF6834E5}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{B523D6A7-9251-4702-9B88-D653825961A8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -32,7 +32,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="c:\vs15\NDM_SSIS-master\_Import\NCA_M221.txt">
+          DTS:ConnectionString="c:\vs15\NDM_SSIS-master\_Import\NCA-M221-.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -62,7 +62,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="c:\vs15\NDM_SSIS-master\_Import\NCA_M501.txt">
+          DTS:ConnectionString="c:\vs15\NDM_SSIS-master\_Import\NCA-M501-.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -116,7 +116,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="sFilenameDestinationM221">
       <DTS:VariableValue
-        DTS:DataType="8">NCA_M221.txt</DTS:VariableValue>
+        DTS:DataType="8">NCA-M221-.txt</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -125,7 +125,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="sFilenameDestinationM501">
       <DTS:VariableValue
-        DTS:DataType="8">NCA_M501.txt</DTS:VariableValue>
+        DTS:DataType="8">NCA-M501-.txt</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -674,117 +674,105 @@
         <NodeLayout
           Size="111,42"
           Id="Package\Multitracking FF Splitting Data Flow\Source"
-          TopLeft="182,114" />
-        <NodeLayout
-          Size="161,42"
-          Id="Package\Multitracking FF Splitting Data Flow\Destination M501"
-          TopLeft="560,133" />
-        <NodeLayout
-          Size="155,42"
-          Id="Package\Multitracking FF Splitting Data Flow\Conditional Split"
-          TopLeft="207,238" />
+          TopLeft="130,93" />
         <NodeLayout
           Size="161,42"
           Id="Package\Multitracking FF Splitting Data Flow\Destination M221"
-          TopLeft="649,250" />
+          TopLeft="456,139" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Multitracking FF Splitting Data Flow\Conditional Split"
+          TopLeft="272,97" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Multitracking FF Splitting Data Flow\Destination M501"
+          TopLeft="455,45" />
         <EdgeLayout
           Id="Package\Multitracking FF Splitting Data Flow.Paths[M501]"
-          TopLeft="309,238">
+          TopLeft="427,118">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="331.5,-63"
+              EndConnector="28,-52"
               Start="0,0"
-              End="331.5,-55.5">
+              End="20.5,-52">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-21.5862068965517" />
+                    End="10,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-21.5862068965517"
-                    Point2="0,-25.5862068965517"
-                    Point3="4,-25.5862068965517" />
+                    Point1="10,0"
+                    Point2="14,0"
+                    Point3="14,-4" />
                   <mssgle:LineSegment
-                    End="327.5,-25.5862068965517" />
+                    End="14,-48" />
                   <mssgle:CubicBezierSegment
-                    Point1="327.5,-25.5862068965517"
-                    Point2="331.5,-25.5862068965517"
-                    Point3="331.5,-29.5862068965517" />
+                    Point1="14,-48"
+                    Point2="14,-52"
+                    Point3="18,-52" />
                   <mssgle:LineSegment
-                    End="331.5,-55.5" />
+                    End="20.5,-52" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="153.47943359375,-20.5862068965517,24.5411328125,9.568359375"
+              BoundingBox="1.72943359375,1,24.5411328125,9.568359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Multitracking FF Splitting Data Flow.Paths[M221]"
-          TopLeft="362,259">
+          TopLeft="427,123.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="287,12"
+              EndConnector="29,36.3333333333333"
               Start="0,0"
-              End="279.5,12">
+              End="21.5,36.3333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="139.5,0" />
+                    End="8.23853211009175,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="139.5,0"
-                    Point2="143.5,0"
-                    Point3="143.5,4" />
+                    Point1="8.23853211009175,0"
+                    Point2="12.2385321100917,0"
+                    Point3="12.2385321100917,4" />
                   <mssgle:LineSegment
-                    End="143.5,8" />
+                    End="12.2385321100917,32.3333333333333" />
                   <mssgle:CubicBezierSegment
-                    Point1="143.5,8"
-                    Point2="143.5,12"
-                    Point3="147.5,12" />
+                    Point1="12.2385321100917,32.3333333333333"
+                    Point2="12.2385321100917,36.3333333333333"
+                    Point3="16.2385321100917,36.3333333333333" />
                   <mssgle:LineSegment
-                    End="279.5,12" />
+                    End="21.5,36.3333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="131.22943359375,-15.421875,24.5411328125,9.421875"
+              BoundingBox="-0.0320342961582547,-15.421875,24.5411328125,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Multitracking FF Splitting Data Flow.Paths[Flat File Source Output]"
-          TopLeft="237.5,156">
+          TopLeft="241,116">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="22.5,82"
+              EndConnector="31,0"
               Start="0,0"
-              End="22.5,74.5">
+              End="23.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.6973180076628" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,44.6973180076628"
-                    Point2="0,48.6973180076628"
-                    Point3="4,48.6973180076628" />
-                  <mssgle:LineSegment
-                    End="18.5,48.6973180076628" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.5,48.6973180076628"
-                    Point2="22.5,48.6973180076628"
-                    Point3="22.5,52.6973180076628" />
-                  <mssgle:LineSegment
-                    End="22.5,74.5" />
+                    End="23.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

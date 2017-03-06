@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="import_ff_nca_m501"
   DTS:PackageType="5"
-  DTS:VersionBuild="395"
-  DTS:VersionGUID="{D05E91B7-2219-4802-92D4-6747614AC436}">
+  DTS:VersionBuild="396"
+  DTS:VersionGUID="{4048D59A-E9AF-4659-BD0E-A38E51F914DE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1322,7 +1322,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="sFileSpec">
       <DTS:VariableValue
-        DTS:DataType="8">NCA-*.txt</DTS:VariableValue>
+        DTS:DataType="8">NCA-M501-*.txt</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1569,7 +1569,7 @@
             <FEFEProperty
               Folder="c:\vs15\NDM_SSIS-master\_Import\" />
             <FEFEProperty
-              FileSpec="NCA-*.txt" />
+              FileSpec="NCA-M501-*.txt" />
             <FEFEProperty
               FileNameRetrievalType="1" />
             <FEFEProperty

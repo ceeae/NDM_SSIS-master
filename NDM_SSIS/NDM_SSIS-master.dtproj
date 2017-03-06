@@ -24,6 +24,11 @@
           <References />
         </DtsPackage>
         <DtsPackage FormatVersion="8">
+          <Name>start_me.dtsx</Name>
+          <FullPath>start_me.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
           <Name>splitter.dtsx</Name>
           <FullPath>splitter.dtsx</FullPath>
           <References />
