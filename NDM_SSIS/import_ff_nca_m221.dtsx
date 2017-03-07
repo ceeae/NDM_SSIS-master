@@ -10,10 +10,10 @@
   DTS:ExecutableType="SSIS.Package.3"
   DTS:LastModifiedProductVersion="13.0.4001.0"
   DTS:LocaleID="1033"
-  DTS:ObjectName="import_ff_nca_m501"
+  DTS:ObjectName="import_ff_nca_m221"
   DTS:PackageType="5"
-  DTS:VersionBuild="426"
-  DTS:VersionGUID="{A7C98A87-C2BD-4882-9EF3-272513BF127C}">
+  DTS:VersionBuild="428"
+  DTS:VersionGUID="{509F0EFB-7C0A-48BC-99B4-C1FB737E21E6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1193,7 +1193,7 @@
                           errorRowDisposition="RedirectRow"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImporto]"
                           name="cImporto"
-                          precision="18"
+                          precision="29"
                           scale="2"
                           truncationRowDisposition="FailComponent">
                           <properties>
@@ -1201,13 +1201,13 @@
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_NUMERIC,18,2)([SUBSTRING](#{Package\Foreach FF NCA (M221) in Import Folder\Import Data\Read FF NCA (M221) from Staging.Outputs[Flat File Source Output].Columns[Importo]},1,7) + "." + [SUBSTRING](#{Package\Foreach FF NCA (M221) in Import Folder\Import Data\Read FF NCA (M221) from Staging.Outputs[Flat File Source Output].Columns[Importo]},8,2))</property>
+                              name="Expression">(DT_NUMERIC,18,2)([SUBSTRING](#{Package\Foreach FF NCA (M221) in Import Folder\Import Data\Read FF NCA (M221) from Staging.Outputs[Flat File Source Output].Columns[Importo]},1,7) + "." + [SUBSTRING](#{Package\Foreach FF NCA (M221) in Import Folder\Import Data\Read FF NCA (M221) from Staging.Outputs[Flat File Source Output].Columns[Importo]},8,2)) * -1</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_NUMERIC,18,2)(SUBSTRING(Importo,1,7) + "." + SUBSTRING(Importo,8,2))</property>
+                              name="FriendlyExpression">(DT_NUMERIC,18,2)(SUBSTRING(Importo,1,7) + "." + SUBSTRING(Importo,8,2)) * -1</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
@@ -1217,7 +1217,7 @@
                           errorRowDisposition="RedirectRow"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoTotaleInEuro]"
                           name="cImportoTotaleInEuro"
-                          precision="18"
+                          precision="29"
                           scale="2"
                           truncationRowDisposition="FailComponent">
                           <properties>
@@ -1225,13 +1225,13 @@
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_NUMERIC,18,2)([SUBSTRING](#{Package\Foreach FF NCA (M221) in Import Folder\Import Data\Read FF NCA (M221) from Staging.Outputs[Flat File Source Output].Columns[ImportoTotaleInEuro]},1,8) + "." + [SUBSTRING](#{Package\Foreach FF NCA (M221) in Import Folder\Import Data\Read FF NCA (M221) from Staging.Outputs[Flat File Source Output].Columns[ImportoTotaleInEuro]},9,2))</property>
+                              name="Expression">(DT_NUMERIC,18,2)([SUBSTRING](#{Package\Foreach FF NCA (M221) in Import Folder\Import Data\Read FF NCA (M221) from Staging.Outputs[Flat File Source Output].Columns[ImportoTotaleInEuro]},1,8) + "." + [SUBSTRING](#{Package\Foreach FF NCA (M221) in Import Folder\Import Data\Read FF NCA (M221) from Staging.Outputs[Flat File Source Output].Columns[ImportoTotaleInEuro]},9,2)) * -1</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_NUMERIC,18,2)(SUBSTRING(ImportoTotaleInEuro,1,8) + "." + SUBSTRING(ImportoTotaleInEuro,9,2))</property>
+                              name="FriendlyExpression">(DT_NUMERIC,18,2)(SUBSTRING(ImportoTotaleInEuro,1,8) + "." + SUBSTRING(ImportoTotaleInEuro,9,2)) * -1</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
@@ -1241,7 +1241,7 @@
                           errorRowDisposition="RedirectRow"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoTotaleInLire]"
                           name="cImportoTotaleInLire"
-                          precision="18"
+                          precision="29"
                           scale="2"
                           truncationRowDisposition="FailComponent">
                           <properties>
@@ -1249,13 +1249,13 @@
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_NUMERIC,18,2)#{Package\Foreach FF NCA (M221) in Import Folder\Import Data\Read FF NCA (M221) from Staging.Outputs[Flat File Source Output].Columns[ImportoTotaleInLire]}</property>
+                              name="Expression">(DT_NUMERIC,18,2)#{Package\Foreach FF NCA (M221) in Import Folder\Import Data\Read FF NCA (M221) from Staging.Outputs[Flat File Source Output].Columns[ImportoTotaleInLire]} * -1</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_NUMERIC,18,2)ImportoTotaleInLire</property>
+                              name="FriendlyExpression">(DT_NUMERIC,18,2)ImportoTotaleInLire * -1</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
@@ -1265,7 +1265,7 @@
                           errorRowDisposition="RedirectRow"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoImpostaLorda]"
                           name="cImportoImpostaLorda"
-                          precision="18"
+                          precision="29"
                           scale="2"
                           truncationRowDisposition="FailComponent">
                           <properties>
@@ -1273,13 +1273,13 @@
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_NUMERIC,18,2)([SUBSTRING](#{Package\Foreach FF NCA (M221) in Import Folder\Import Data\Read FF NCA (M221) from Staging.Outputs[Flat File Source Output].Columns[ImportoImpostaLorda]},1,7) + "." + [SUBSTRING](#{Package\Foreach FF NCA (M221) in Import Folder\Import Data\Read FF NCA (M221) from Staging.Outputs[Flat File Source Output].Columns[ImportoImpostaLorda]},8,2))</property>
+                              name="Expression">(DT_NUMERIC,18,2)([SUBSTRING](#{Package\Foreach FF NCA (M221) in Import Folder\Import Data\Read FF NCA (M221) from Staging.Outputs[Flat File Source Output].Columns[ImportoImpostaLorda]},1,7) + "." + [SUBSTRING](#{Package\Foreach FF NCA (M221) in Import Folder\Import Data\Read FF NCA (M221) from Staging.Outputs[Flat File Source Output].Columns[ImportoImpostaLorda]},8,2)) * -1</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_NUMERIC,18,2)(SUBSTRING(ImportoImpostaLorda,1,7) + "." + SUBSTRING(ImportoImpostaLorda,8,2))</property>
+                              name="FriendlyExpression">(DT_NUMERIC,18,2)(SUBSTRING(ImportoImpostaLorda,1,7) + "." + SUBSTRING(ImportoImpostaLorda,8,2)) * -1</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
@@ -1289,7 +1289,7 @@
                           errorRowDisposition="RedirectRow"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoAbbuoniContestuali]"
                           name="cImportoAbbuoniContestuali"
-                          precision="18"
+                          precision="29"
                           scale="2"
                           truncationRowDisposition="FailComponent">
                           <properties>
@@ -1297,13 +1297,13 @@
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_NUMERIC,18,2)([SUBSTRING](#{Package\Foreach FF NCA (M221) in Import Folder\Import Data\Read FF NCA (M221) from Staging.Outputs[Flat File Source Output].Columns[ImportoAbbuoniContestuali]},1,6) + "." + [SUBSTRING](#{Package\Foreach FF NCA (M221) in Import Folder\Import Data\Read FF NCA (M221) from Staging.Outputs[Flat File Source Output].Columns[ImportoAbbuoniContestuali]},7,2))</property>
+                              name="Expression">(DT_NUMERIC,18,2)([SUBSTRING](#{Package\Foreach FF NCA (M221) in Import Folder\Import Data\Read FF NCA (M221) from Staging.Outputs[Flat File Source Output].Columns[ImportoAbbuoniContestuali]},1,6) + "." + [SUBSTRING](#{Package\Foreach FF NCA (M221) in Import Folder\Import Data\Read FF NCA (M221) from Staging.Outputs[Flat File Source Output].Columns[ImportoAbbuoniContestuali]},7,2)) * -1</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_NUMERIC,18,2)(SUBSTRING(ImportoAbbuoniContestuali,1,6) + "." + SUBSTRING(ImportoAbbuoniContestuali,7,2))</property>
+                              name="FriendlyExpression">(DT_NUMERIC,18,2)(SUBSTRING(ImportoAbbuoniContestuali,1,6) + "." + SUBSTRING(ImportoAbbuoniContestuali,7,2)) * -1</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
@@ -5660,12 +5660,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error"
+                  refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error"
                   componentClassID="DTSAdapter.FlatFileDestination.3"
                   contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
                   description="Flat File Destination"
                   localeId="1040"
-                  name="Write FF NCA (M501) to Error">
+                  name="Write FF NCA (M221) to Error">
                   <properties>
                     <property
                       dataType="System.Boolean"
@@ -5679,196 +5679,196 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Connections[FlatFileConnection]"
+                      refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Connections[FlatFileConnection]"
                       connectionManagerID="Package.ConnectionManagers[FF NCA (M221) Error]"
                       connectionManagerRefId="Package.ConnectionManagers[FF NCA (M221) Error]"
                       name="FlatFileConnection" />
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input]"
+                      refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input]"
                       hasSideEffects="true"
                       name="Flat File Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].Columns[TipoRecord]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].Columns[TipoRecord]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="1"
                           cachedName="TipoRecord"
-                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[TipoRecord]"
+                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[TipoRecord]"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Union All.Outputs[Union All Output 1].Columns[TipoRecord]" />
                         <inputColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].Columns[Contabilita]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].Columns[Contabilita]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="4"
                           cachedName="Contabilita"
-                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[Contabilita]"
+                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[Contabilita]"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Union All.Outputs[Union All Output 1].Columns[Contabilita]" />
                         <inputColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].Columns[CodiceSede]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].Columns[CodiceSede]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="2"
                           cachedName="CodiceSede"
-                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[CodiceSede]"
+                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[CodiceSede]"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Union All.Outputs[Union All Output 1].Columns[CodiceSede]" />
                         <inputColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].Columns[NumeroQuietanza]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].Columns[NumeroQuietanza]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="7"
                           cachedName="NumeroQuietanza"
-                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[NumeroQuietanza]"
+                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[NumeroQuietanza]"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Union All.Outputs[Union All Output 1].Columns[NumeroQuietanza]" />
                         <inputColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].Columns[CodiceProvincia]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].Columns[CodiceProvincia]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="2"
                           cachedName="CodiceProvincia"
-                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[CodiceProvincia]"
+                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[CodiceProvincia]"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Union All.Outputs[Union All Output 1].Columns[CodiceProvincia]" />
                         <inputColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].Columns[CodiceAgenzia]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].Columns[CodiceAgenzia]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="2"
                           cachedName="CodiceAgenzia"
-                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[CodiceAgenzia]"
+                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[CodiceAgenzia]"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Union All.Outputs[Union All Output 1].Columns[CodiceAgenzia]" />
                         <inputColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].Columns[NumeroFattura]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].Columns[NumeroFattura]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="7"
                           cachedName="NumeroFattura"
-                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[NumeroFattura]"
+                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[NumeroFattura]"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Union All.Outputs[Union All Output 1].Columns[NumeroFattura]" />
                         <inputColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].Columns[DataQuietanza]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].Columns[DataQuietanza]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="6"
                           cachedName="DataQuietanza"
-                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[DataQuietanza]"
+                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[DataQuietanza]"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Union All.Outputs[Union All Output 1].Columns[DataQuietanza]" />
                         <inputColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].Columns[TipoDocumento]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].Columns[TipoDocumento]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="2"
                           cachedName="TipoDocumento"
-                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[TipoDocumento]"
+                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[TipoDocumento]"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Union All.Outputs[Union All Output 1].Columns[TipoDocumento]" />
                         <inputColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].Columns[NumeroDocumentoRiferimento]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].Columns[NumeroDocumentoRiferimento]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="7"
                           cachedName="NumeroDocumentoRiferimento"
-                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[NumeroDocumentoRiferimento]"
+                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[NumeroDocumentoRiferimento]"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Union All.Outputs[Union All Output 1].Columns[NumeroDocumentoRiferimento]" />
                         <inputColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].Columns[DataDocumentoRiferimento]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].Columns[DataDocumentoRiferimento]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="6"
                           cachedName="DataDocumentoRiferimento"
-                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[DataDocumentoRiferimento]"
+                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[DataDocumentoRiferimento]"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Union All.Outputs[Union All Output 1].Columns[DataDocumentoRiferimento]" />
                         <inputColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
                           cachedDataType="i4"
                           cachedName="ErrorColumn"
-                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]" />
                         <inputColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].Columns[ErrorDescription]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].Columns[ErrorDescription]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="500"
                           cachedName="ErrorDescription"
-                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[ErrorDescr]"
+                          externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[ErrorDescr]"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Get Error Column Description.Outputs[Output 0].Columns[ErrorDescription]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[TipoRecord]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[TipoRecord]"
                           codePage="1252"
                           dataType="str"
                           length="1"
                           name="TipoRecord" />
                         <externalMetadataColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[Contabilita]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[Contabilita]"
                           codePage="1252"
                           dataType="str"
                           length="4"
                           name="Contabilita" />
                         <externalMetadataColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[CodiceSede]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[CodiceSede]"
                           codePage="1252"
                           dataType="str"
                           length="2"
                           name="CodiceSede" />
                         <externalMetadataColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[NumeroQuietanza]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[NumeroQuietanza]"
                           codePage="1252"
                           dataType="str"
                           length="7"
                           name="NumeroQuietanza" />
                         <externalMetadataColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[CodiceProvincia]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[CodiceProvincia]"
                           codePage="1252"
                           dataType="str"
                           length="2"
                           name="CodiceProvincia" />
                         <externalMetadataColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[CodiceAgenzia]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[CodiceAgenzia]"
                           codePage="1252"
                           dataType="str"
                           length="2"
                           name="CodiceAgenzia" />
                         <externalMetadataColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[NumeroFattura]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[NumeroFattura]"
                           codePage="1252"
                           dataType="str"
                           length="7"
                           name="NumeroFattura" />
                         <externalMetadataColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[DataQuietanza]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[DataQuietanza]"
                           codePage="1252"
                           dataType="str"
                           length="6"
                           name="DataQuietanza" />
                         <externalMetadataColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[TipoDocumento]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[TipoDocumento]"
                           codePage="1252"
                           dataType="str"
                           length="2"
                           name="TipoDocumento" />
                         <externalMetadataColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[NumeroDocumentoRiferimento]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[NumeroDocumentoRiferimento]"
                           codePage="1252"
                           dataType="str"
                           length="7"
                           name="NumeroDocumentoRiferimento" />
                         <externalMetadataColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[DataDocumentoRiferimento]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[DataDocumentoRiferimento]"
                           codePage="1252"
                           dataType="str"
                           length="6"
                           name="DataDocumentoRiferimento" />
                         <externalMetadataColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
                           codePage="1252"
                           dataType="str"
                           length="5"
                           name="ErrorColumn" />
                         <externalMetadataColumn
-                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input].ExternalColumns[ErrorDescr]"
+                          refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input].ExternalColumns[ErrorDescr]"
                           codePage="1252"
                           dataType="str"
                           length="100"
@@ -6198,7 +6198,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                           refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write NCA Table (M221).Inputs[OLE DB Destination Input].Columns[cImporto]"
                           cachedDataType="numeric"
                           cachedName="cImporto"
-                          cachedPrecision="18"
+                          cachedPrecision="29"
                           cachedScale="2"
                           externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write NCA Table (M221).Inputs[OLE DB Destination Input].ExternalColumns[Importo]"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImporto]" />
@@ -6206,7 +6206,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                           refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write NCA Table (M221).Inputs[OLE DB Destination Input].Columns[cImportoTotaleInEuro]"
                           cachedDataType="numeric"
                           cachedName="cImportoTotaleInEuro"
-                          cachedPrecision="18"
+                          cachedPrecision="29"
                           cachedScale="2"
                           externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write NCA Table (M221).Inputs[OLE DB Destination Input].ExternalColumns[ImportoTotaleInEuro]"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoTotaleInEuro]" />
@@ -6214,7 +6214,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                           refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write NCA Table (M221).Inputs[OLE DB Destination Input].Columns[cImportoTotaleInLire]"
                           cachedDataType="numeric"
                           cachedName="cImportoTotaleInLire"
-                          cachedPrecision="18"
+                          cachedPrecision="29"
                           cachedScale="2"
                           externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write NCA Table (M221).Inputs[OLE DB Destination Input].ExternalColumns[ImportoTotaleInLire]"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoTotaleInLire]" />
@@ -6222,7 +6222,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                           refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write NCA Table (M221).Inputs[OLE DB Destination Input].Columns[cImportoImpostaLorda]"
                           cachedDataType="numeric"
                           cachedName="cImportoImpostaLorda"
-                          cachedPrecision="18"
+                          cachedPrecision="29"
                           cachedScale="2"
                           externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write NCA Table (M221).Inputs[OLE DB Destination Input].ExternalColumns[ImportoImpostaLorda]"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoImpostaLorda]" />
@@ -6230,7 +6230,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                           refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write NCA Table (M221).Inputs[OLE DB Destination Input].Columns[cImportoAbbuoniContestuali]"
                           cachedDataType="numeric"
                           cachedName="cImportoAbbuoniContestuali"
-                          cachedPrecision="18"
+                          cachedPrecision="29"
                           cachedScale="2"
                           externalMetadataColumnId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write NCA Table (M221).Inputs[OLE DB Destination Input].ExternalColumns[ImportoAbbuoniContestuali]"
                           lineageId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Add Converted Fields.Outputs[Derived Column Output].Columns[cImportoAbbuoniContestuali]" />
@@ -6768,7 +6768,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   startId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Multicast Correct Rows.Outputs[Multicast Output 3]" />
                 <path
                   refId="Package\Foreach FF NCA (M221) in Import Folder\Import Data.Paths[Output 0]"
-                  endId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error.Inputs[Flat File Destination Input]"
+                  endId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error.Inputs[Flat File Destination Input]"
                   name="Output 0"
                   startId="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Get Error Column Description.Outputs[Output 0]" />
                 <path
@@ -7278,7 +7278,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="83,341" />
         <NodeLayout
           Size="218,42"
-          Id="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M501) to Error"
+          Id="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Write FF NCA (M221) to Error"
           TopLeft="711,262" />
         <NodeLayout
           Size="141,62"
@@ -7297,9 +7297,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Add Converted Fields"
           TopLeft="92,109" />
         <NodeLayout
+          Size="121,42"
+          Id="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Union All"
+          TopLeft="340,141" />
+        <NodeLayout
           Size="156,46"
           Id="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Update Total Rows with Error"
           TopLeft="530,261" />
+        <EdgeLayout
+          Id="Package\Foreach FF NCA (M221) in Import Folder\Import Data.Paths[Union All Output 1]"
+          TopLeft="461,160.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41,0"
+              Start="0,0"
+              End="33.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="33.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach FF NCA (M221) in Import Folder\Import Data.Paths[Output 0]"
           TopLeft="819.25,194">
@@ -7455,39 +7481,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Foreach FF NCA (M221) in Import Folder\Import Data.Paths[Data Conversion Output]"
-          TopLeft="179,230">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,35"
-              Start="0,0"
-              End="0,27.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <AnnotationLayout
-          Text="SSIS 2012* KNOWN ISSUE&#xA;NOT easy way available to get &#xA;ErrorColumn associated name"
-          ParentId="Package\Foreach FF NCA (M221) in Import Folder\Import Data"
-          FontInfo="{assembly:Null}"
-          Size="191,72"
-          Id="9719b634-0673-4967-a990-26c197049d11"
-          TopLeft="916,138" />
-        <NodeLayout
-          Size="121,42"
-          Id="Package\Foreach FF NCA (M221) in Import Folder\Import Data\Union All"
-          TopLeft="340,141" />
-        <EdgeLayout
           Id="Package\Foreach FF NCA (M221) in Import Folder\Import Data.Paths[Dates Conversion Error Flow]"
           TopLeft="271,130">
           <EdgeLayout.Curve>
@@ -7521,6 +7514,28 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             <mssgm:EdgeLabel
               BoundingBox="-28.70404296875,-15.7490234375,126.4080859375,9.7490234375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach FF NCA (M221) in Import Folder\Import Data.Paths[Data Conversion Output]"
+          TopLeft="179,230">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7559,28 +7574,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach FF NCA (M221) in Import Folder\Import Data.Paths[Union All Output 1]"
-          TopLeft="461,160.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="41,0"
-              Start="0,0"
-              End="33.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="33.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <AnnotationLayout
+          Text="SSIS 2012* KNOWN ISSUE&#xA;NOT easy way available to get &#xA;ErrorColumn associated name"
+          ParentId="Package\Foreach FF NCA (M221) in Import Folder\Import Data"
+          FontInfo="{assembly:Null}"
+          Size="191,72"
+          Id="9719b634-0673-4967-a990-26c197049d11"
+          TopLeft="916,138" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
