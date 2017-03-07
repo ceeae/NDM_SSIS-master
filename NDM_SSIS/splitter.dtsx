@@ -1,21 +1,21 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="2/23/2017 10:07:52 AM"
-  DTS:CreationName="Microsoft.Package"
+  DTS:CreationName="SSIS.Package.3"
   DTS:CreatorComputerName="DESKTOP-9PO21MC"
   DTS:CreatorName="DESKTOP-9PO21MC\pietro"
   DTS:DTSID="{40F9C8BF-965C-4486-B9BE-9FA037150098}"
   DTS:EnableConfig="True"
-  DTS:ExecutableType="Microsoft.Package"
+  DTS:ExecutableType="SSIS.Package.3"
   DTS:LastModifiedProductVersion="13.0.4001.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="splitter"
   DTS:PackageType="5"
   DTS:VersionBuild="25"
-  DTS:VersionGUID="{B523D6A7-9251-4702-9B88-D653825961A8}">
+  DTS:VersionGUID="{CDD13813-1DF8-45FC-9F2E-9F03139ED014}">
   <DTS:Property
-    DTS:Name="PackageFormatVersion">8</DTS:Property>
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Destination M221]"
@@ -158,10 +158,10 @@
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Multitracking FF Splitting Data Flow"
-      DTS:CreationName="Microsoft.Pipeline"
+      DTS:CreationName="SSIS.Pipeline.3"
       DTS:Description="Data Flow Task"
       DTS:DTSID="{D9117613-74FA-4E3A-936F-84DD44C1C9AB}"
-      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:ExecutableType="SSIS.Pipeline.3"
       DTS:LocaleID="-1"
       DTS:ObjectName="Multitracking FF Splitting Data Flow">
       <DTS:Variables />
@@ -171,7 +171,7 @@
           <components>
             <component
               refId="Package\Multitracking FF Splitting Data Flow\Conditional Split"
-              componentClassID="Microsoft.ConditionalSplit"
+              componentClassID="DTSTransform.ConditionalSplit.3"
               contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
               name="Conditional Split"
@@ -430,7 +430,7 @@
             </component>
             <component
               refId="Package\Multitracking FF Splitting Data Flow\Destination M221"
-              componentClassID="Microsoft.FlatFileDestination"
+              componentClassID="DTSAdapter.FlatFileDestination.3"
               contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Flat File Destination"
               localeId="1033"
@@ -482,7 +482,7 @@
             </component>
             <component
               refId="Package\Multitracking FF Splitting Data Flow\Destination M501"
-              componentClassID="Microsoft.FlatFileDestination"
+              componentClassID="DTSAdapter.FlatFileDestination.3"
               contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Flat File Destination"
               localeId="1033"
@@ -534,7 +534,7 @@
             </component>
             <component
               refId="Package\Multitracking FF Splitting Data Flow\Source"
-              componentClassID="Microsoft.FlatFileSource"
+              componentClassID="DTSAdapter.FlatFileSource.3"
               contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Flat File Source"
               localeId="1033"
@@ -652,7 +652,7 @@
 <!--If you manually edit this section and make a mistake, you can delete it. -->
 <!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
-  Version="8">
+  Version="sql11">
   <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
