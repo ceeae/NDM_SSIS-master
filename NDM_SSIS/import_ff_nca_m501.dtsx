@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="import_ff_nca_m501"
   DTS:PackageType="5"
-  DTS:VersionBuild="409"
-  DTS:VersionGUID="{0C785395-5B07-4E2E-B68E-8259729F0C83}">
+  DTS:VersionBuild="413"
+  DTS:VersionGUID="{D65E3CD8-043A-4DC0-A4FB-D4BD5BC01784}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1195,15 +1195,13 @@
             DTS:FilterKind="0" />
           <DTS:PropertyExpression
             DTS:Name="SqlStatementSource">"INSERT INTO " + @[User::sTableNameJournal] +
-" (Package, Filename) " +
-
-"VALUES ( ?, ?);" + 
+" (Package, Source)  VALUES ( ?, ?);" + 
 
 " SELECT SCOPE_IDENTITY() as LastId"</DTS:PropertyExpression>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{790CD2F4-3156-4BD7-A417-A0D2AB077BDB}"
-              SQLTask:SqlStatementSource="INSERT INTO ProvvJournal (Package, Filename) VALUES ( ?, ?); SELECT SCOPE_IDENTITY() as LastId"
+              SQLTask:SqlStatementSource="INSERT INTO ProvvJournal (Package, Source)  VALUES ( ?, ?); SELECT SCOPE_IDENTITY() as LastId"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="LastId"
@@ -8769,11 +8767,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             DTS:FilterKind="0" />
           <DTS:PropertyExpression
             DTS:Name="SqlStatementSource">"UPDATE " + @[User::sTableNameJournal] + 
-" SET ImportEndDate = GETUTCDATE(), RowsInserted = ?, RowsUpdated = ?, RowsWithError = ? WHERE id = ?"</DTS:PropertyExpression>
+" SET Destination = '" + @[User::sTableNameImportNCA] + "', EndDate = GETUTCDATE(), RowsInserted = ?, RowsUpdated = ?, RowsWithError = ? WHERE id = ?"</DTS:PropertyExpression>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{790CD2F4-3156-4BD7-A417-A0D2AB077BDB}"
-              SQLTask:SqlStatementSource="UPDATE ProvvJournal SET ImportEndDate = GETUTCDATE(), RowsInserted = ?, RowsUpdated = ?, RowsWithError = ? WHERE id = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="UPDATE ProvvJournal SET Destination = 'ProvvIncassi', EndDate = GETUTCDATE(), RowsInserted = ?, RowsUpdated = ?, RowsWithError = ? WHERE id = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="3"
                 SQLTask:DtsVariableName="User::uLastId"
@@ -9228,13 +9226,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Add Converted Fields"
           TopLeft="89,103" />
         <NodeLayout
-          Size="194,42"
-          Id="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Write NCA Table (M501)"
-          TopLeft="89,354" />
-        <NodeLayout
           Size="156,46"
           Id="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Update Total Rows with Error"
           TopLeft="530,261" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Write NCA Table (M501)"
+          TopLeft="89,354" />
         <NodeLayout
           Size="242,42"
           Id="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Read FF NCA (M501) from Staging"
@@ -9256,28 +9254,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\Foreach FF NCA (M501) in Import Folder\Import Data\Convert Data Types"
           TopLeft="96,176" />
         <EdgeLayout
-          Id="Package\Foreach FF NCA (M501) in Import Folder\Import Data.Paths[Union All Output 1]"
-          TopLeft="470,156">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="32,0"
-              Start="0,0"
-              End="24.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="24.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Foreach FF NCA (M501) in Import Folder\Import Data.Paths[Output 0]"
           TopLeft="819.25,194">
           <EdgeLayout.Curve>
@@ -9296,7 +9272,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9318,7 +9296,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9340,7 +9320,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9362,7 +9344,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9384,7 +9368,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9406,7 +9392,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9428,7 +9416,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9450,7 +9440,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9525,11 +9517,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach FF NCA (M501) in Import Folder\Import Data.Paths[Union All Output 1]"
+          TopLeft="470,156">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32,0"
+              Start="0,0"
+              End="24.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="24.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <AnnotationLayout
           Text="SSIS 2012* KNOWN ISSUE&#xA;NOT easy way available to get &#xA;ErrorColumn associated name"
           ParentId="Package\Foreach FF NCA (M501) in Import Folder\Import Data"
           FontInfo="{assembly:Null}"
-          Size="191,72"
+          Size="191,NaN"
           Id="9719b634-0673-4967-a990-26c197049d11"
           TopLeft="916,138" />
       </GraphLayout>

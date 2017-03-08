@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="import_ff_nca_m221"
   DTS:PackageType="5"
-  DTS:VersionBuild="428"
-  DTS:VersionGUID="{509F0EFB-7C0A-48BC-99B4-C1FB737E21E6}">
+  DTS:VersionBuild="434"
+  DTS:VersionGUID="{E78D8E63-511D-4679-9C5B-276EC893DF69}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1011,15 +1011,13 @@
             DTS:FilterKind="0" />
           <DTS:PropertyExpression
             DTS:Name="SqlStatementSource">"INSERT INTO " + @[User::sTableNameJournal] +
-" (Package, Filename) " +
-
-"VALUES ( ?, ?);" + 
+" (Package, Source) VALUES ( ?, ?);" + 
 
 " SELECT SCOPE_IDENTITY() as LastId"</DTS:PropertyExpression>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{F8134EE1-5011-445B-BA87-C6EE233429E8}"
-              SQLTask:SqlStatementSource="INSERT INTO ProvvJournal (Package, Filename) VALUES ( ?, ?); SELECT SCOPE_IDENTITY() as LastId"
+              SQLTask:SqlStatementSource="INSERT INTO ProvvJournal (Package, Source) VALUES ( ?, ?); SELECT SCOPE_IDENTITY() as LastId"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="LastId"
@@ -6818,11 +6816,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             DTS:FilterKind="0" />
           <DTS:PropertyExpression
             DTS:Name="SqlStatementSource">"UPDATE " + @[User::sTableNameJournal] + 
-" SET ImportEndDate = GETUTCDATE(), RowsInserted = ?, RowsUpdated = ?, RowsWithError = ? WHERE id = ?"</DTS:PropertyExpression>
+" SET Destination = '" + @[User::sTableNameImportNCA] + "', EndDate = GETUTCDATE(), RowsInserted = ?, RowsUpdated = ?, RowsWithError = ? WHERE id = ?"</DTS:PropertyExpression>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{F8134EE1-5011-445B-BA87-C6EE233429E8}"
-              SQLTask:SqlStatementSource="UPDATE ProvvJournal SET ImportEndDate = GETUTCDATE(), RowsInserted = ?, RowsUpdated = ?, RowsWithError = ? WHERE id = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="UPDATE ProvvJournal SET Destination = 'ProvvIncassi', EndDate = GETUTCDATE(), RowsInserted = ?, RowsUpdated = ?, RowsWithError = ? WHERE id = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="3"
                 SQLTask:DtsVariableName="User::uLastId"
@@ -7189,8 +7187,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="427,262"
-          Size="427,305"
+          PanelSize="427,278"
+          Size="427,321"
           Id="Package\Foreach FF NCA (M221) in Import Folder"
           TopLeft="435.388888888889,48.25" />
         <NodeLayout
@@ -7323,7 +7321,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7345,7 +7345,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7367,7 +7369,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7389,7 +7393,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7411,7 +7417,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7433,7 +7441,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7455,7 +7465,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7477,7 +7489,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7535,7 +7549,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7575,10 +7591,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
-          Text="SSIS 2012* KNOWN ISSUE&#xA;NOT easy way available to get &#xA;ErrorColumn associated name"
+          Text="SSIS 2012* KNOWN ISSUE&#xA;NOT easy way available to get &#xA;ErrorColumn name :("
           ParentId="Package\Foreach FF NCA (M221) in Import Folder\Import Data"
           FontInfo="{assembly:Null}"
-          Size="191,72"
+          Size="191,NaN"
           Id="9719b634-0673-4967-a990-26c197049d11"
           TopLeft="916,138" />
       </GraphLayout>

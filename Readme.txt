@@ -40,19 +40,23 @@ Notes
 M501 Data Conversion Checks
 ===========================
 
-- DataFattura [varchar](6) 'ggmmaa'							DataQuietanza [date] (Error raised)
-- NumeroFattura [varchar] (7)								NumeroFattura [varchar] (10) '9' + 'yy' + NumeroFattura
-- DataNotaCredito [varchar](6) 'ggmmaa'						DataDocumentoRiferimento [date] (Not raised any error. gets NULL)
-- CodiceProvincia [varchar](2) '00'...'99','A0','A1',...	varchar[3] '000','001',...,'099','100','101',...
-- CodiceBA [varchar](30)									CodiceLocale (will change in the future)
-- Importo [varchar](9) '(7,2) nnnnnnnnn'					decimal(18,2)
-- ImportoIva5082 [varchar](8) '(6,2) nnnnnnnn'				decimal(18,2)
-- ImportoIva5183 [varchar](8) '(6,2) nnnnnnnn'				decimal(18,2)
-- ImportoTotaleInEuro [varchar](10) '(8,2) nnnnnnnnnn'		decimal(18,2)
-- ImportoTotaleInLire [varchar](10) 'nnnnnnnnnn'			decimal(18,2)
-- ImportoImpostaLorda [varchar](9) '(7,2) nnnnnnnnn'		decimal(18,2)
-- ImportoAbbuoniContestuali [varchar](8) '(6,2) nnnnnnnn'	decimal(18,2)
+ 1. DataFattura [varchar](6) 'ggmmaa'							DataQuietanza [date] (Error raised)
+ 2. NumeroFattura [varchar] (7)								NumeroFattura [varchar] (10) '9' + 'yy' + NumeroFattura
+ 3. DataNotaCredito [varchar](6) 'ggmmaa'						DataDocumentoRiferimento [date] (Not raised any error. gets NULL)
+ 4. CodiceProvincia [varchar](2) '00'...'99','A0','A1',...	varchar[3] '000','001',...,'099','100','101',...
+ 5. CodiceBA [varchar](30)									CodiceLocale (will change in the future)
+ 6. Importo [varchar](9) '(7,2) nnnnnnnnn'					decimal(18,2)
+ 7. ImportoIva5082 [varchar](8) '(6,2) nnnnnnnn'				decimal(18,2)
+ 8. ImportoIva5183 [varchar](8) '(6,2) nnnnnnnn'				decimal(18,2)
+ 9. ImportoTotaleInEuro [varchar](10) '(8,2) nnnnnnnnnn'		decimal(18,2)
+10. ImportoTotaleInLire [varchar](10) 'nnnnnnnnnn'			decimal(18,2)
+11. ImportoImpostaLorda [varchar](9) '(7,2) nnnnnnnnn'		decimal(18,2)
+12. ImportoAbbuoniContestuali [varchar](8) '(6,2) nnnnnnnn'	decimal(18,2)
 
+M221 Data Conversion Checks
+===========================
+All M501 Checks are applied, not 7. and 8.
+Amounts are made negative (6. 9. 10. 11. 12.)
 
 Open Questions
 ==============

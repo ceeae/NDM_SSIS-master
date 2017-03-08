@@ -9,9 +9,10 @@ IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = @Table
 			' (
 				[id] [int] IDENTITY(1,1) NOT NULL,
 				[Package] [varchar](500) NOT NULL,
-				[Filename] [varchar](500) NOT NULL,
-				[ImportStartDate] [datetime] NOT NULL,
-				[ImportEndDate] [datetime] NULL,
+				[Source] [varchar](500) NOT NULL,
+				[StartDate] [datetime] NOT NULL,
+				[Destination] [varchar](500) NULL,
+				[EndDate] [datetime] NULL,
 				[RowsInserted] [int] NULL,
 				[RowsUpdated] [int] NULL,
 				[RowsWithError] [int] NULL,
@@ -24,7 +25,7 @@ IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = @Table
 		EXEC (@CreateTableSQLQuery);
 				
 		SET @CreateTableSQLQuery = 
-			'ALTER TABLE ' + @TableName + ' ADD CONSTRAINT [DF_' + @TableName + '_ImportStartDate] DEFAULT (GETUTCDATE()) FOR [ImportStartDate]'
+			'ALTER TABLE ' + @TableName + ' ADD CONSTRAINT [DF_' + @TableName + '_StartDate] DEFAULT (GETUTCDATE()) FOR [StartDate]'
 		EXEC (@CreateTableSQLQuery);
 
 	END
