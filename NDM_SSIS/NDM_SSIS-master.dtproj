@@ -18,7 +18,7 @@
           <FullPath>demo_incr_insert_and_update.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="6">
+        <DtsPackage FormatVersion="8">
           <Name>import_ff_nca_m221.dtsx</Name>
           <FullPath>import_ff_nca_m221.dtsx</FullPath>
           <References />

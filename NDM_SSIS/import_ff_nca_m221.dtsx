@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="2/15/2017 3:43:38 PM"
@@ -13,7 +13,7 @@
   DTS:ObjectName="import_ff_nca_m221"
   DTS:PackageType="5"
   DTS:VersionBuild="434"
-  DTS:VersionGUID="{E78D8E63-511D-4679-9C5B-276EC893DF69}">
+  DTS:VersionGUID="{FAA6E4A7-99DD-44A8-A32C-3DBF7756812E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1493,7 +1493,7 @@
                   contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;10"
                   description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
                   name="Get Error Column Description"
-                  version="8">
+                  version="6">
                   <properties>
                     <property
                       dataType="System.String"
@@ -1502,11 +1502,9 @@
                       name="SourceCode"
                       state="cdata">
                       <arrayElements
-                        arrayElementCount="30">
+                        arrayElementCount="20">
                         <arrayElement
                           dataType="System.String"><![CDATA[SC_54d5417bffb344028a88e28a79309ac7.csproj]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -1553,16 +1551,16 @@
     <Compile Include="main.cs" />
     <Compile Include="BufferWrapper.cs" />
     <Compile Include="ComponentWrapper.cs" />
-    <Reference Include="Microsoft.SqlServer.TxScript, Version=11.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=13.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=11.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=13.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=11.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=13.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=11.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=13.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -1597,7 +1595,7 @@
         <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
         <Host Name="ScriptComponent" IconIndex="0" />
         <ProjectClient>
-          <HostIdentifier>SSIS_SC110</HostIdentifier>
+          <HostIdentifier>SSIS_SC130</HostIdentifier>
         </ProjectClient>
       </FlavorProperties>
     </VisualStudio>
@@ -1605,8 +1603,6 @@
 </Project>]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
@@ -1727,8 +1723,6 @@
 </root>]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[main.cs]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[#region Help:  Introduction to the Script Component
 /* The Script Component allows you to perform virtually any operation that can be accomplished in
@@ -1865,8 +1859,6 @@ public class ScriptMain : UserComponent
                         <arrayElement
                           dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
                         <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                        <arrayElement
                           dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
 *  Microsoft SQL Server Integration Services buffer wrappers
 *  This module defines classes for accessing data flow buffers
@@ -1954,8 +1946,6 @@ public class Input0Buffer: ScriptBuffer
                         <arrayElement
                           dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
                         <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                        <arrayElement
                           dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
 *  Microsoft SQL Server Integration Services component wrapper
 *  This module defines the base class for your component
@@ -2026,8 +2016,6 @@ public class Variables
                         <arrayElement
                           dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
                         <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                        <arrayElement
                           dataType="System.String"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
 
@@ -2060,8 +2048,6 @@ using System.Runtime.CompilerServices;
                         <arrayElement
                           dataType="System.String"><![CDATA[Project]]></arrayElement>
                         <arrayElement
-                          dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
-                        <arrayElement
                           dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
 <c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
 	<msb:PropertyGroup>
@@ -2084,8 +2070,6 @@ using System.Runtime.CompilerServices;
 </c:Project>]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
 // <auto-generated>
@@ -2118,8 +2102,6 @@ namespace SC_54d5417bffb344028a88e28a79309ac7.Properties {
                         <arrayElement
                           dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
                         <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                        <arrayElement
                           dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
 <SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
   <Profiles>
@@ -2129,8 +2111,6 @@ namespace SC_54d5417bffb344028a88e28a79309ac7.Properties {
 </SettingsFile>]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
 // <auto-generated>
@@ -2214,7 +2194,7 @@ namespace SC_54d5417bffb344028a88e28a79309ac7.Properties {
                         <arrayElement
                           dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAMvHvVgAAAAAAAAAAOAAIiALATAAABQAAAAIAAAAAAAA7jIA
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAEtuwFgAAAAAAAAAAOAAIiALATAAABQAAAAIAAAAAAAA7jIA
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAEAAAAAAAAAACAAAAAAgAAAAAAAAMAQIUAABAA
 ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAJwyAABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -2255,8 +2235,8 @@ AEQBLgAzAEQBLgA7AEQBLgBDABsBLgBLAEoBLgBTAEQBLgBbAGEBQwBjAKkB4QB7AKkB4wBrAKkB
 6QBzABIBCQFzABIBAwABAAcABwAIAAkAAACLAM8AAABcA9MAAADTA88AAABxA9MAAABNBNcAAACI
 A9MAAADkBNsAAAAJAeAAAABRBuUAAgAGAAMAAgAHAAUAAgAIAAcAAgAJAAkAAQAKAAsAAQALAA0A
 AgAVAA8AAgAWABEAAQAXABEAAgAYABMABIAAAAEAAAAAAAAAAAAAAAAAIwAAAAQAAAAAAAAAAAAA
-AG0AbgAAAAAACwAAAAAAAAAAAAAAdgCHBgAAAAALAAAAAAAAAAAAAAB2AKQGAAAAAAQAAAAAAAAA
-AAAAAG0AsQMAAAAACwAAAAAAAAAAAAAAdgCTBAAAAAAAAAAAAQAAAG4FAAAAAAAAAElEVFNDb21w
+AG0AbgAAAAAADQAAAAAAAAAAAAAAdgCHBgAAAAANAAAAAAAAAAAAAAB2AKQGAAAAAAQAAAAAAAAA
+AAAAAG0AsQMAAAAADQAAAAAAAAAAAAAAdgCTBAAAAAAAAAAAAQAAAG4FAAAAAAAAAElEVFNDb21w
 b25lbnRNZXRhRGF0YTEwMABHZXRJbnQzMgBTQ181NGQ1NDE3YmZmYjM0NDAyOGE4OGUyOGE3OTMw
 OWFjNwA8TW9kdWxlPgBJbnB1dElEAGdldF9Db21wb25lbnRNZXRhRGF0YQBtc2NvcmxpYgBkZWZh
 dWx0SW5zdGFuY2UAZ2V0X0Vycm9yQ29kZQBSdW50aW1lVHlwZUhhbmRsZQBHZXRUeXBlRnJvbUhh
@@ -2293,7 +2273,7 @@ IABjAGEAbgBuAG8AdAAgAGIAZQAgAHMAZQB0ACAAdABvACAARgBhAGwAcwBlAC4AIABBAHMAcwBp
 AGcAbgAgAGEAIAB2AGEAbAB1AGUAIAB0AG8AIAB0AGgAZQAgAGMAbwBsAHUAbQBuACAAaQBuAHMA
 dABlAGEAZAAuAAAPSQBuAHAAdQB0ACAAMAAAcVMAQwBfADUANABkADUANAAxADcAYgBmAGYAYgAz
 ADQANAAwADIAOABhADgAOABlADIAOABhADcAOQAzADAAOQBhAGMANwAuAFAAcgBvAHAAZQByAHQA
-aQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAADmrUa/vqK0qEukjzAhbMwAAEIAEBCAMgAAEFIAEB
+aQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAXmmeOYw8P0KKQ7fINw9mQAAEIAEBCAMgAAEFIAEB
 EREEIAEBDgUgAQERWQQgABJpBCABDggJIAMBEj0dCBJBAwYSPQMGHQgEIAEICAQgAQIIBSACAQgc
 AyAAAgYgAgIOEXUFIAEdCAgGAAESeRF9BSAAEoCBByACAQ4SgIEIt3pcVhk04IkIiYRdzYCAzJED
 BhIUAwYSGAMGEkUDBhJRAwYSVQMGEiAFIAEBEgwDIAAIBCABAQIJIAQBCA4SPRJBBSABARJFBAAA

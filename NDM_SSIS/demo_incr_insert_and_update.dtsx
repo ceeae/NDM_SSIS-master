@@ -12,7 +12,7 @@
   DTS:ObjectName="demo_incr_insert_and_update"
   DTS:PackageType="5"
   DTS:VersionBuild="51"
-  DTS:VersionGUID="{9DAD5E2C-1AFE-4CA2-8EC4-D3D1F775A21F}">
+  DTS:VersionGUID="{46AC1DDC-4184-47C5-8323-FA1D5E3886DB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
