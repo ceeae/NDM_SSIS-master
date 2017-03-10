@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="2/15/2017 3:43:38 PM"
@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="import_ff_nca_m221"
   DTS:PackageType="5"
-  DTS:VersionBuild="434"
-  DTS:VersionGUID="{FAA6E4A7-99DD-44A8-A32C-3DBF7756812E}">
+  DTS:VersionBuild="447"
+  DTS:VersionGUID="{358853EC-D508-4430-97DC-2762F1CA0F8C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -613,24 +613,6 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{03747505-A191-4502-8255-568D8CC3F0D5}"
-      DTS:IncludeInDebugDump="6789"
-      DTS:Namespace="User"
-      DTS:ObjectName="oResultsetRowsWithError">
-      <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
       DTS:DTSID="{1116AD24-EC72-4927-B991-DCE1632B9841}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
@@ -650,6 +632,8 @@
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{A5D86388-EA95-4055-BCEB-1BE862E9D242}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::sFolderPathScripts]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="sConnectionStringFolderPathSQLScript">
@@ -687,6 +671,8 @@
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{2EB1A5DB-2992-43FE-84A3-E03F470E87BF}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::sFolderPathRoot] + @[User::sRelativeFolderPathArchive]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="sFolderPathArchive">
@@ -696,6 +682,8 @@
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{E82117B7-C0E2-4490-B37F-AF92847665A9}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::sFolderPathRoot] +  @[User::sRelativeFolderPathError]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="sFolderPathError">
@@ -705,6 +693,8 @@
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{A8E77D71-B0AC-48F7-91F8-9F86AFA13BBF}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::sFolderPathRoot] +  @[User::sRelativeFolderPathImport]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="sFolderPathImport">
@@ -713,7 +703,29 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{FFDC609D-F684-401C-AC65-3B25E6E60DAF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sFolderPathRoot">
+      <DTS:VariableValue
+        DTS:DataType="8">c:\vs15\NDM_SSIS-master\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{99EE234E-1844-44FA-9C0B-9D200BABC950}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::sFolderPathRoot] + @[User::sRelativeFolderPathScripts]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sFolderPathScripts">
+      <DTS:VariableValue
+        DTS:DataType="8">c:\vs15\NDM_SSIS-master\SqlScripts\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{3424DA70-C40F-46A0-99A3-B1C39B3156E5}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::sFolderPathRoot] +  @[User::sRelativeFolderPathStaging]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="sFolderPathStaging">
@@ -741,6 +753,51 @@
       DTS:ObjectName="sFullFilenameToImport">
       <DTS:VariableValue
         DTS:DataType="8">c:\vs15\NDM_SSIS-master\_Import\foreach_variable_.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{04C13C26-B38C-4330-B634-64478EC670EC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sRelativeFolderPathArchive">
+      <DTS:VariableValue
+        DTS:DataType="8">_Archive\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6FDAF7B5-CD38-4DCA-AFF1-CFFE0CA51E63}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sRelativeFolderPathError">
+      <DTS:VariableValue
+        DTS:DataType="8">_Error\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A5A6DF62-2528-499A-A50C-9D943A79E5DA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sRelativeFolderPathImport">
+      <DTS:VariableValue
+        DTS:DataType="8">_Import\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{47CED052-51EB-44B7-8F63-E5F2C0896F11}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sRelativeFolderPathScripts">
+      <DTS:VariableValue
+        DTS:DataType="8">SqlScripts\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5E5B67F7-7692-48C2-B62D-AC926804CB4D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sRelativeFolderPathStaging">
+      <DTS:VariableValue
+        DTS:DataType="8">_Staging\</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1493,7 +1550,7 @@
                   contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;10"
                   description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
                   name="Get Error Column Description"
-                  version="6">
+                  version="8">
                   <properties>
                     <property
                       dataType="System.String"
@@ -1502,9 +1559,11 @@
                       name="SourceCode"
                       state="cdata">
                       <arrayElements
-                        arrayElementCount="20">
+                        arrayElementCount="30">
                         <arrayElement
                           dataType="System.String"><![CDATA[SC_54d5417bffb344028a88e28a79309ac7.csproj]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -1551,16 +1610,16 @@
     <Compile Include="main.cs" />
     <Compile Include="BufferWrapper.cs" />
     <Compile Include="ComponentWrapper.cs" />
-    <Reference Include="Microsoft.SqlServer.TxScript, Version=13.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=11.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=13.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=11.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=13.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=11.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=13.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=11.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -1595,7 +1654,7 @@
         <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
         <Host Name="ScriptComponent" IconIndex="0" />
         <ProjectClient>
-          <HostIdentifier>SSIS_SC130</HostIdentifier>
+          <HostIdentifier>SSIS_SC110</HostIdentifier>
         </ProjectClient>
       </FlavorProperties>
     </VisualStudio>
@@ -1603,6 +1662,8 @@
 </Project>]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
@@ -1723,6 +1784,8 @@
 </root>]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[main.cs]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[#region Help:  Introduction to the Script Component
 /* The Script Component allows you to perform virtually any operation that can be accomplished in
@@ -1859,6 +1922,8 @@ public class ScriptMain : UserComponent
                         <arrayElement
                           dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
                         <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
                           dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
 *  Microsoft SQL Server Integration Services buffer wrappers
 *  This module defines classes for accessing data flow buffers
@@ -1946,6 +2011,8 @@ public class Input0Buffer: ScriptBuffer
                         <arrayElement
                           dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
                         <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
                           dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
 *  Microsoft SQL Server Integration Services component wrapper
 *  This module defines the base class for your component
@@ -2016,6 +2083,8 @@ public class Variables
                         <arrayElement
                           dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
                         <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
                           dataType="System.String"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
 
@@ -2048,13 +2117,15 @@ using System.Runtime.CompilerServices;
                         <arrayElement
                           dataType="System.String"><![CDATA[Project]]></arrayElement>
                         <arrayElement
+                          dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                        <arrayElement
                           dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
 <c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
 	<msb:PropertyGroup>
 		<msb:CodeName>SC_54d5417bffb344028a88e28a79309ac7</msb:CodeName>
 		<msb:Language>msBuild</msb:Language>
 		<msb:DisplayName>SC_54d5417bffb344028a88e28a79309ac7</msb:DisplayName>
-		<msb:ProjectId>{CDF235AD-4A10-4FD4-A052-1DD9810E0FC3}</msb:ProjectId>
+		<msb:ProjectId>{CA9BF842-4E8A-47BA-A949-21F325488EBC}</msb:ProjectId>
 	</msb:PropertyGroup>
 	<msb:ItemGroup>
 		<msb:Project Include="SC_54d5417bffb344028a88e28a79309ac7.csproj"/>
@@ -2070,6 +2141,8 @@ using System.Runtime.CompilerServices;
 </c:Project>]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
 // <auto-generated>
@@ -2102,6 +2175,8 @@ namespace SC_54d5417bffb344028a88e28a79309ac7.Properties {
                         <arrayElement
                           dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
                         <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
                           dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
 <SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
   <Profiles>
@@ -2111,6 +2186,8 @@ namespace SC_54d5417bffb344028a88e28a79309ac7.Properties {
 </SettingsFile>]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
                         <arrayElement
                           dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
 // <auto-generated>
@@ -2194,7 +2271,7 @@ namespace SC_54d5417bffb344028a88e28a79309ac7.Properties {
                         <arrayElement
                           dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAEtuwFgAAAAAAAAAAOAAIiALATAAABQAAAAIAAAAAAAA7jIA
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDADKVwVgAAAAAAAAAAOAAIiALATAAABQAAAAIAAAAAAAA7jIA
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAEAAAAAAAAAACAAAAAAgAAAAAAAAMAQIUAABAA
 ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAJwyAABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -2235,8 +2312,8 @@ AEQBLgAzAEQBLgA7AEQBLgBDABsBLgBLAEoBLgBTAEQBLgBbAGEBQwBjAKkB4QB7AKkB4wBrAKkB
 6QBzABIBCQFzABIBAwABAAcABwAIAAkAAACLAM8AAABcA9MAAADTA88AAABxA9MAAABNBNcAAACI
 A9MAAADkBNsAAAAJAeAAAABRBuUAAgAGAAMAAgAHAAUAAgAIAAcAAgAJAAkAAQAKAAsAAQALAA0A
 AgAVAA8AAgAWABEAAQAXABEAAgAYABMABIAAAAEAAAAAAAAAAAAAAAAAIwAAAAQAAAAAAAAAAAAA
-AG0AbgAAAAAADQAAAAAAAAAAAAAAdgCHBgAAAAANAAAAAAAAAAAAAAB2AKQGAAAAAAQAAAAAAAAA
-AAAAAG0AsQMAAAAADQAAAAAAAAAAAAAAdgCTBAAAAAAAAAAAAQAAAG4FAAAAAAAAAElEVFNDb21w
+AG0AbgAAAAAACwAAAAAAAAAAAAAAdgCHBgAAAAALAAAAAAAAAAAAAAB2AKQGAAAAAAQAAAAAAAAA
+AAAAAG0AsQMAAAAACwAAAAAAAAAAAAAAdgCTBAAAAAAAAAAAAQAAAG4FAAAAAAAAAElEVFNDb21w
 b25lbnRNZXRhRGF0YTEwMABHZXRJbnQzMgBTQ181NGQ1NDE3YmZmYjM0NDAyOGE4OGUyOGE3OTMw
 OWFjNwA8TW9kdWxlPgBJbnB1dElEAGdldF9Db21wb25lbnRNZXRhRGF0YQBtc2NvcmxpYgBkZWZh
 dWx0SW5zdGFuY2UAZ2V0X0Vycm9yQ29kZQBSdW50aW1lVHlwZUhhbmRsZQBHZXRUeXBlRnJvbUhh
@@ -2273,7 +2350,7 @@ IABjAGEAbgBuAG8AdAAgAGIAZQAgAHMAZQB0ACAAdABvACAARgBhAGwAcwBlAC4AIABBAHMAcwBp
 AGcAbgAgAGEAIAB2AGEAbAB1AGUAIAB0AG8AIAB0AGgAZQAgAGMAbwBsAHUAbQBuACAAaQBuAHMA
 dABlAGEAZAAuAAAPSQBuAHAAdQB0ACAAMAAAcVMAQwBfADUANABkADUANAAxADcAYgBmAGYAYgAz
 ADQANAAwADIAOABhADgAOABlADIAOABhADcAOQAzADAAOQBhAGMANwAuAFAAcgBvAHAAZQByAHQA
-aQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAXmmeOYw8P0KKQ7fINw9mQAAEIAEBCAMgAAEFIAEB
+aQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAhBEzwVlNRkWemAh5h7ll3gAEIAEBCAMgAAEFIAEB
 EREEIAEBDgUgAQERWQQgABJpBCABDggJIAMBEj0dCBJBAwYSPQMGHQgEIAEICAQgAQIIBSACAQgc
 AyAAAgYgAgIOEXUFIAEdCAgGAAESeRF9BSAAEoCBByACAQ4SgIEIt3pcVhk04IkIiYRdzYCAzJED
 BhIUAwYSGAMGEkUDBhJRAwYSVQMGEiAFIAEBEgwDIAAIBCABAQIJIAQBCA4SPRJBBSABARJFBAAA

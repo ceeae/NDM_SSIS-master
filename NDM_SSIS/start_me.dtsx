@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="3/6/2017 6:52:10 PM"
@@ -6,13 +6,14 @@
   DTS:CreatorComputerName="DESKTOP-9PO21MC"
   DTS:CreatorName="DESKTOP-9PO21MC\pietro"
   DTS:DTSID="{2133D344-7BF7-4669-A50D-254FF8DB9FCC}"
+  DTS:EnableConfig="True"
   DTS:ExecutableType="SSIS.Package.3"
   DTS:LastModifiedProductVersion="13.0.4001.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="start_me"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{36429596-C384-44CE-B30D-8960EA322642}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{6DAC82A4-457F-4908-B666-193E63AD2D46}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -21,6 +22,8 @@
       DTS:CreationName="FILE"
       DTS:DTSID="{1C305D99-08AE-4F87-83C3-795032F52C48}"
       DTS:ObjectName="import_ff_nca_m221.dtsx">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::sFolderPathPackages] + "import_ff_nca_m221.dtsx"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="C:\vs15\NDM_SSIS-master\NDM_SSIS\import_ff_nca_m221.dtsx" />
@@ -31,6 +34,8 @@
       DTS:CreationName="FILE"
       DTS:DTSID="{09DBD14A-4AD6-4F0D-B979-5893E9121926}"
       DTS:ObjectName="import_ff_nca_m501.dtsx">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::sFolderPathPackages] + "import_ff_nca_m501.dtsx"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="C:\vs15\NDM_SSIS-master\NDM_SSIS\import_ff_nca_m501.dtsx" />
@@ -41,13 +46,59 @@
       DTS:CreationName="FILE"
       DTS:DTSID="{06585658-FB2E-4E9C-B5F4-0AB075D68C24}"
       DTS:ObjectName="splitter.dtsx">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::sFolderPathPackages] + "splitter.dtsx"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="C:\vs15\NDM_SSIS-master\NDM_SSIS\splitter.dtsx" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:Variables />
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="C:\vs15\NDM_SSIS-master\ConfigurationFiles\import_ff_nca_m501_SVIL.dtsConfig"
+      DTS:ConfigurationType="1"
+      DTS:CreationName=""
+      DTS:DTSID="{630F6481-CF3C-43D6-A87E-A2E402D26B53}"
+      DTS:ObjectName="Configuration SVIL" />
+    <DTS:Configuration
+      DTS:ConfigurationString="C:\vs15\NDM_SSIS-master\ConfigurationFiles\import_ff_nca_m501.dtsConfig"
+      DTS:ConfigurationType="1"
+      DTS:CreationName=""
+      DTS:DTSID="{75BC0471-48F5-4FBF-8DE2-C0790E46EAA0}"
+      DTS:ObjectName="Configuration Template" />
+  </DTS:Configurations>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{30EF4D77-E218-4752-9E1D-4C8C5ACA6FA7}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::sFolderPathRoot] + @[User::sRelativePathPackages]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sFolderPathPackages">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\vs15\NDM_SSIS-master\NDM_SSIS\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8094AE6B-1216-42CA-9719-561E868518CD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sFolderPathRoot">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\vs15\NDM_SSIS-master\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D2E73AC6-C05A-44A2-9718-1ACC9E3572CC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sRelativePathPackages">
+      <DTS:VariableValue
+        DTS:DataType="8">NDM_SSIS\</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Import M221 from Flat File"
@@ -129,6 +180,10 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="142,42"
+          Id="Package\Import M221 from Flat File"
+          TopLeft="555,73" />
+        <NodeLayout
           Size="152,42"
           Id="Package\Import M501 from Flat File"
           TopLeft="340,69" />
@@ -158,10 +213,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="142,42"
-          Id="Package\Import M221 from Flat File"
-          TopLeft="555,73" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="492,92">

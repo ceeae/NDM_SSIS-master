@@ -1,27 +1,15 @@
 <?xml version="1.0"?>
 <DTSConfiguration>
   <DTSConfigurationHeading>
-    <DTSConfigurationFileInfo GeneratedBy="DESKTOP-9PO21MC\pietro" GeneratedFromPackageName="import_ff_nca_m501" GeneratedFromPackageID="{B54ABA12-7FE5-48CD-BCB9-AE90F15CF558}" GeneratedDate="23/02/2017 15:29:43"/>
+    <DTSConfigurationFileInfo GeneratedBy="DESKTOP-9PO21MC\pietro" GeneratedFromPackageName="import_ff_nca_m221" GeneratedFromPackageID="{8C2D3D8A-60A6-4CB5-BA5C-86F8F337608A}" GeneratedDate="3/9/2017 8:16:13 PM"/>
   </DTSConfigurationHeading>
   <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sConnectionStringDBImport].Properties[Value]" ValueType="String">
-    <ConfiguredValue>Data Source=sql_emittenzaradiotelevisiva.sviluppo.siae;Initial Catalog=SchedarioTerritorio;Persist Security Info=True;User ID=webserviziadmin;Password=WebAdminpass;Provider=SQLNCLI11.1;</ConfiguredValue>
+    <ConfiguredValue>Data Source=.;Initial Catalog=test;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
   </Configuration>
   <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sConnectionStringDBLogging].Properties[Value]" ValueType="String">
-    <ConfiguredValue>Data Source=sql_emittenzaradiotelevisiva.sviluppo.siae;Initial Catalog=SchedarioTerritorio;Persist Security Info=True;User ID=webserviziadmin;Password=WebAdminpass;Provider=SQLNCLI11.1;</ConfiguredValue>
+    <ConfiguredValue>Data Source=.;Initial Catalog=test;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
   </Configuration>
-  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sConnectionStringFolderPathSQLScript].Properties[Value]" ValueType="String">
-    <ConfiguredValue>c:\vs15\NDM_SSIS-master\SqlScripts\</ConfiguredValue>
-  </Configuration>
-  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sFolderPathArchive].Properties[Value]" ValueType="String">
-    <ConfiguredValue>c:\vs15\NDM_SSIS-master\_Archive\</ConfiguredValue>
-  </Configuration>
-  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sFolderPathError].Properties[Value]" ValueType="String">
-    <ConfiguredValue>c:\vs15\NDM_SSIS-master\_Error\</ConfiguredValue>
-  </Configuration>
-  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sFolderPathImport].Properties[Value]" ValueType="String">
-    <ConfiguredValue>c:\vs15\NDM_SSIS-master\_Import\</ConfiguredValue>
-  </Configuration>
-  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sFolderPathStaging].Properties[Value]" ValueType="String">
-    <ConfiguredValue>c:\vs15\NDM_SSIS-master\_Staging\</ConfiguredValue>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sFolderPathRoot].Properties[Value]" ValueType="String">
+    <ConfiguredValue>c:\vs15\NDM_SSIS-master\</ConfiguredValue>
   </Configuration>
 </DTSConfiguration>
