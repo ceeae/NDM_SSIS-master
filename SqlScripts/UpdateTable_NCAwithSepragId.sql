@@ -12,6 +12,7 @@ BEGIN
 													 uts.CodiceProvincia = pri.CodiceProvincia AND 
 													 uts.CodiceAgenzia = pri.CodiceAgenzia
 
+				WHERE pri.IdSeprag IS NULL
 				ORDER BY uts.ID
 				) n 
 				WHERE n.seprag = ProvvIncassi.CodiceSede + ProvvIncassi.CodiceProvincia + ProvvIncassi.CodiceAgenzia;

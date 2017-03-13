@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="start_me"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{6DAC82A4-457F-4908-B666-193E63AD2D46}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{7199B970-E5A7-43AB-9467-2C855A8928EE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,7 +26,7 @@
         DTS:Name="ConnectionString">@[User::sFolderPathPackages] + "import_ff_nca_m221.dtsx"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="C:\vs15\NDM_SSIS-master\NDM_SSIS\import_ff_nca_m221.dtsx" />
+          DTS:ConnectionString="c:\vs15\NDM_SSIS-master\NDM_SSIS\import_ff_nca_m221.dtsx" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -38,7 +38,7 @@
         DTS:Name="ConnectionString">@[User::sFolderPathPackages] + "import_ff_nca_m501.dtsx"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="C:\vs15\NDM_SSIS-master\NDM_SSIS\import_ff_nca_m501.dtsx" />
+          DTS:ConnectionString="c:\vs15\NDM_SSIS-master\NDM_SSIS\import_ff_nca_m501.dtsx" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -50,7 +50,7 @@
         DTS:Name="ConnectionString">@[User::sFolderPathPackages] + "splitter.dtsx"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="C:\vs15\NDM_SSIS-master\NDM_SSIS\splitter.dtsx" />
+          DTS:ConnectionString="c:\vs15\NDM_SSIS-master\NDM_SSIS\splitter.dtsx" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -78,7 +78,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="sFolderPathPackages">
       <DTS:VariableValue
-        DTS:DataType="8">C:\vs15\NDM_SSIS-master\NDM_SSIS\</DTS:VariableValue>
+        DTS:DataType="8">c:\vs15\NDM_SSIS-master\NDM_SSIS\</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -87,7 +87,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="sFolderPathRoot">
       <DTS:VariableValue
-        DTS:DataType="8">C:\vs15\NDM_SSIS-master\</DTS:VariableValue>
+        DTS:DataType="8">c:\vs15\NDM_SSIS-master\</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
