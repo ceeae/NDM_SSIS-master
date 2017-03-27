@@ -28,6 +28,11 @@
           <FullPath>import_ff_nca_m501.dtsx</FullPath>
           <References />
         </DtsPackage>
+        <DtsPackage FormatVersion="6">
+          <Name>import_sql_nca.dtsx</Name>
+          <FullPath>import_sql_nca.dtsx</FullPath>
+          <References />
+        </DtsPackage>
         <DtsPackage FormatVersion="8">
           <Name>splitter.dtsx</Name>
           <FullPath>splitter.dtsx</FullPath>

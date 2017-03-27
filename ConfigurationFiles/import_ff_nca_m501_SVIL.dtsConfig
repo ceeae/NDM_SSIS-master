@@ -4,10 +4,10 @@
     <DTSConfigurationFileInfo GeneratedBy="DESKTOP-9PO21MC\pietro" GeneratedFromPackageName="import_ff_nca_m221" GeneratedFromPackageID="{8C2D3D8A-60A6-4CB5-BA5C-86F8F337608A}" GeneratedDate="3/9/2017 8:16:13 PM"/>
   </DTSConfigurationHeading>
   <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sConnectionStringDBImport].Properties[Value]" ValueType="String">
-    <ConfiguredValue>Data Source=.;Initial Catalog=test;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
+    <ConfiguredValue>Data Source=sql_emittenzaradiotelevisiva.sviluppo.siae;Initial Catalog=SchedarioTerritorio;Provider=SQLNCLI11.1;Persist Security Info=True;User ID=webserviziadmin;Password=WebAdminpass;</ConfiguredValue>
   </Configuration>
   <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sConnectionStringDBLogging].Properties[Value]" ValueType="String">
-    <ConfiguredValue>Data Source=.;Initial Catalog=test;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</ConfiguredValue>
+    <ConfiguredValue>Data Source=sql_emittenzaradiotelevisiva.sviluppo.siae;Initial Catalog=SchedarioTerritorio;Provider=SQLNCLI11.1;Persist Security Info=True;User ID=webserviziadmin;Password=WebAdminpass;</ConfiguredValue>
   </Configuration>
   <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sFolderPathRoot].Properties[Value]" ValueType="String">
     <ConfiguredValue>c:\vs15\NDM_SSIS-master\</ConfiguredValue>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<DTSConfiguration>
+  <DTSConfigurationHeading>
+    <DTSConfigurationFileInfo GeneratedBy="DESKTOP-9PO21MC\pietro" GeneratedFromPackageName="import_sql_nca" GeneratedFromPackageID="{B58A515A-B347-4113-9718-347D0F81FDFD}" GeneratedDate="3/27/2017 4:45:38 PM"/>
+  </DTSConfigurationHeading>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::dtImportEndDate].Properties[Value]" ValueType="DateTime">
+    <ConfiguredValue>2015-3-27 12:00:00 AM</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::dtImportStartDate].Properties[Value]" ValueType="DateTime">
+    <ConfiguredValue>2015-1-1 12:00:00 AM</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sConnectionStringDB_NDM].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=sql_emittenzaradiotelevisiva.sviluppo.siae;Initial Catalog=SchedarioTerritorio;Provider=SQLNCLI11.1;Persist Security Info=True;User ID=webserviziadmin;Password=WebAdminpass;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sConnectionStringDB_SUN].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=srvsvi-l081v.net.siae)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=SPSVIL.NET.SIAE)));User ID=NETDMUSR;Password=netdmusr1!;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sFolderPathRoot].Properties[Value]" ValueType="String">
+    <ConfiguredValue>c:\vs15\NDM_SSIS-master\</ConfiguredValue>
+  </Configuration>
+</DTSConfiguration>
