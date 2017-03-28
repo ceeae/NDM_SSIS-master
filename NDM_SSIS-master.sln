@@ -7,6 +7,7 @@ Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "NDM_SSIS-master", "NDM_SSIS
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{921B0C39-BE75-43A0-9145-FFF77DC19149}"
 	ProjectSection(SolutionItems) = preProject
+		Notes.txt = Notes.txt
 		Readme.txt = Readme.txt
 	EndProjectSection
 EndProject
@@ -17,6 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SqlScripts", "SqlScripts", 
 		SqlScripts\Demo_IIU_BulkUpdate_InnerJoin.sql = SqlScripts\Demo_IIU_BulkUpdate_InnerJoin.sql
 		SqlScripts\Demo_IIU_SetupTables.sql = SqlScripts\Demo_IIU_SetupTables.sql
 		SqlScripts\SetupTable_Journal.sql = SqlScripts\SetupTable_Journal.sql
+		SqlScripts\SetupTable_NCADetailsImportFromSQL.sql = SqlScripts\SetupTable_NCADetailsImportFromSQL.sql
 		SqlScripts\SetupTable_NCAImport.sql = SqlScripts\SetupTable_NCAImport.sql
 		SqlScripts\SetupTable_NCAImportFromSQL.sql = SqlScripts\SetupTable_NCAImportFromSQL.sql
 		SqlScripts\UpdateTable_NCAwithSepragId.sql = SqlScripts\UpdateTable_NCAwithSepragId.sql
@@ -27,15 +29,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConfigurationFiles", "Confi
 		ConfigurationFiles\import_ff_nca_m501.dtsConfig = ConfigurationFiles\import_ff_nca_m501.dtsConfig
 		ConfigurationFiles\import_ff_nca_m501_SVIL.dtsConfig = ConfigurationFiles\import_ff_nca_m501_SVIL.dtsConfig
 		ConfigurationFiles\import_sql_nca.dtsConfig = ConfigurationFiles\import_sql_nca.dtsConfig
+		ConfigurationFiles\import_sql_nca_dettaglio.dtsConfig = ConfigurationFiles\import_sql_nca_dettaglio.dtsConfig
 	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
+		Release|Default = Release|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{605E3832-2E5F-4198-BF4D-D420146D2EC5}.Development|Default.ActiveCfg = Development
 		{605E3832-2E5F-4198-BF4D-D420146D2EC5}.Development|Default.Build.0 = Development
+		{605E3832-2E5F-4198-BF4D-D420146D2EC5}.Release|Default.ActiveCfg = Release
+		{605E3832-2E5F-4198-BF4D-D420146D2EC5}.Release|Default.Build.0 = Release
+		{605E3832-2E5F-4198-BF4D-D420146D2EC5}.Release|Default.Deploy.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

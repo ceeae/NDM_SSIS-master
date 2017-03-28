@@ -15,8 +15,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="import_sql_nca"
   DTS:PackageType="5"
-  DTS:VersionBuild="124"
-  DTS:VersionGUID="{5591B393-BF65-4195-8663-6E77961C17EF}">
+  DTS:VersionBuild="128"
+  DTS:VersionGUID="{1610B2DA-46B9-41D5-82BA-7944AA21ECDA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -33,7 +33,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhIxnY1wSJUOuRsC1QnppiAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADPtWaI+yg6GAo2j13+fNVCDNjQSdp3HfgFqiUHDBWLKwAAAAAOgAAAAAIAACAAAADzr7ObW5iiF9tnjn97eMjIvIaQ7DyGZV9/3iLasnICZSAAAACCEPXMWtd/Bv0szzxAj/ysisOiHG1vNpa5U3vflAiRr0AAAAAcu3fwje/3tv2rIsKzEu565DXaAoEsjz01m9JWmHdiE02F0b3bxf6qnu/TtmEdR16mcpNmgW7HtuMr6Jv81CLy</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhIxnY1wSJUOuRsC1QnppiAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD44i/v77BEchm852beYoVRa5uHSgjNuErcZOtQn/v2dwAAAAAOgAAAAAIAACAAAADk7nKtwt/UcRBXOLTtwb1PF8Ta1LnX1oVHJaHoHDPYriAAAACnwevZTNwt0YKOmvBA9+7HPkTTOZioedDKeuISfS3TzUAAAACzU2oGGARrSHyF66SisscxyXxMYCpryECH821rk/+ftAFz2r/DHkP66CWrQ6uhOAixsOOfBknq7C6yQIswYN3v</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -50,7 +50,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhIxnY1wSJUOuRsC1QnppiAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAATBCQHtMHlj3xjD1JtdlJ+YP6Gkykn8R4Phg9+1ietywAAAAAOgAAAAAIAACAAAAAC53+XsNCAbHyRVIsQEmu061hTii9jR8s5hMi8BKkqdSAAAAAemeUFu7qq3Bf14/idTt1KST5sKhyh3fG0IXrNzc5850AAAABKSYHcMs5z59aEMdq+vbWR/B29y92mVWBFal7VaekPd8uooKqkt9Qdlkgl8D6aEyHVbT+/+TeO5wdfXNd3ZPeG</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhIxnY1wSJUOuRsC1QnppiAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACjDUYF23dxsD6mdjf2t3DqOaIkudVPK+B3Bmo9gOSBdgAAAAAOgAAAAAIAACAAAAAN+hjYz52yiWG4wshr/fmHVAP0rBqJ1VhMGqSevwzEJyAAAAAPNO9QmpNPwH/ArxuCDxrZU+VtHtXZbldFBy/QFo+BJkAAAAB4VPot7G7U8PrXGuvrkQKFYyOxKn7nDgG2Ffdn7b11PFOtfR/J5Y0B1YIGXAv424mZcQyFQatArl6Jh7R8L0V3</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2762,7 +2762,7 @@ order by
           DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExpressionTask.ExpressionTask, Microsoft.SqlServer.ExpressionTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
           DTS:LocaleID="-1"
           DTS:ObjectName="Get Last Import End Date from Configuration"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <ExpressionTask
@@ -2777,7 +2777,7 @@ order by
           DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
           DTS:LocaleID="-1"
           DTS:ObjectName="Get Last Import End Date from Journal"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:PropertyExpression
             DTS:Name="SqlStatementSource">"IF (SELECT count(EndDate) FROM ProvvJournal where EndDate IS NOT NULL) &lt;&gt; 0 
@@ -2915,7 +2915,7 @@ SELECT EndDate = GETUTCDATE()"</DTS:PropertyExpression>
           PanelSize="384,336"
           Size="384,379"
           Id="Package\Import NCA from SQL SUN"
-          TopLeft="667,117" />
+          TopLeft="648,115" />
         <NodeLayout
           Size="188,57"
           Id="Package\Setup Tables\Create Journal Table (if not exists)"
@@ -3035,18 +3035,18 @@ SELECT EndDate = GETUTCDATE()"</DTS:PropertyExpression>
           TopLeft="95,101" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="567,305.5">
+          TopLeft="567,304.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="100,0"
+              EndConnector="81,0"
               Start="0,0"
-              End="92.5,0">
+              End="73.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="92.5,0" />
+                    End="73.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3062,7 +3062,7 @@ SELECT EndDate = GETUTCDATE()"</DTS:PropertyExpression>
     design-time-name="Package\Import NCA from SQL SUN\Import NCA Staging">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="130,42"
           Id="Package\Import NCA from SQL SUN\Import NCA Staging\Row Count"
@@ -3098,9 +3098,7 @@ SELECT EndDate = GETUTCDATE()"</DTS:PropertyExpression>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,29.25,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout

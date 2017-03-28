@@ -13,34 +13,14 @@
   <DeploymentModelSpecificContent>
     <Manifest>
       <DTSPackages>
-        <DtsPackage FormatVersion="8">
-          <Name>demo_incr_insert_and_update.dtsx</Name>
-          <FullPath>demo_incr_insert_and_update.dtsx</FullPath>
-          <References />
-        </DtsPackage>
-        <DtsPackage FormatVersion="8">
-          <Name>import_ff_nca_m221.dtsx</Name>
-          <FullPath>import_ff_nca_m221.dtsx</FullPath>
-          <References />
-        </DtsPackage>
-        <DtsPackage FormatVersion="8">
-          <Name>import_ff_nca_m501.dtsx</Name>
-          <FullPath>import_ff_nca_m501.dtsx</FullPath>
-          <References />
-        </DtsPackage>
         <DtsPackage FormatVersion="6">
           <Name>import_sql_nca.dtsx</Name>
           <FullPath>import_sql_nca.dtsx</FullPath>
           <References />
         </DtsPackage>
-        <DtsPackage FormatVersion="8">
-          <Name>splitter.dtsx</Name>
-          <FullPath>splitter.dtsx</FullPath>
-          <References />
-        </DtsPackage>
-        <DtsPackage FormatVersion="8">
-          <Name>start_me.dtsx</Name>
-          <FullPath>start_me.dtsx</FullPath>
+        <DtsPackage FormatVersion="6">
+          <Name>import_sql_nca_dettaglio.dtsx</Name>
+          <FullPath>import_sql_nca_dettaglio.dtsx</FullPath>
           <References />
         </DtsPackage>
       </DTSPackages>
@@ -51,6 +31,18 @@
   <Configurations>
     <Configuration>
       <Name>Development</Name>
+      <Options>
+        <OutputPath>bin</OutputPath>
+        <ConnectionMappings />
+        <ConnectionProviderMappings />
+        <ConnectionSecurityMappings />
+        <DatabaseStorageLocations />
+        <TargetServerVersion>SQLServer2012</TargetServerVersion>
+        <ParameterConfigurationValues />
+      </Options>
+    </Configuration>
+    <Configuration>
+      <Name>Release</Name>
       <Options>
         <OutputPath>bin</OutputPath>
         <ConnectionMappings />

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<DTSConfiguration>
+  <DTSConfigurationHeading>
+    <DTSConfigurationFileInfo GeneratedBy="DESKTOP-9PO21MC\pietro" GeneratedFromPackageName="import_sql_nca_dettaglio" GeneratedFromPackageID="{2C9DA58C-7A12-4F44-9ECA-BFE1C995618C}" GeneratedDate="3/28/2017 10:55:51 AM"/>
+  </DTSConfigurationHeading>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sConnectionStringDB_NDM].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=sql_emittenzaradiotelevisiva.sviluppo.siae;Initial Catalog=SchedarioTerritorio;Provider=SQLNCLI11.1;Persist Security Info=True;User ID=webserviziadmin;Password=WebAdminpass;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sConnectionStringDB_SUN].Properties[Value]" ValueType="String">
+    <ConfiguredValue>Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=srvsvi-l081v.net.siae)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=SPSVIL.NET.SIAE)));User ID=NETDMUSR;Password=netdmusr1!;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::sFolderPathRoot].Properties[Value]" ValueType="String">
+    <ConfiguredValue>c:\vs15\NDM_SSIS-master\</ConfiguredValue>
+  </Configuration>
+</DTSConfiguration>

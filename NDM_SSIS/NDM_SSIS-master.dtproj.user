@@ -5,7 +5,19 @@
       <Name>Development</Name>
       <Options>
         <CreateDeploymentUtility>true</CreateDeploymentUtility>
-        <StartObjectID>start_me.dtsx</StartObjectID>
+        <Run64BitRuntime>true</Run64BitRuntime>
+        <UserIDs />
+        <UserPasswords />
+        <OfflineMode>false</OfflineMode>
+        <ProgressReporting>true</ProgressReporting>
+        <ParameterConfigurationSensitiveValues />
+      </Options>
+    </Configuration>
+    <Configuration>
+      <Name>Release</Name>
+      <Options>
+        <CreateDeploymentUtility>true</CreateDeploymentUtility>
+        <StartObjectID>import_sql_nca.dtsx</StartObjectID>
         <Run64BitRuntime>true</Run64BitRuntime>
         <UserIDs />
         <UserPasswords />

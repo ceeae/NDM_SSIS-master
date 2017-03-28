@@ -1,0 +1,7 @@
+
+
+Start DtExec
+============
+
+
+dtexec /File \\hnas1_50\AreaBatch\WebServiziBatch\NDM\import_sql_nca.dtsx /Conf \\hnas1_50\AreaBatch\WebServiziBatch\NDM\import_sql_nca.dtsConfig
